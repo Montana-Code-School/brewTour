@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import Gmap from './gmap';
 
 class BrewerySearch extends React.Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class BrewerySearch extends React.Component {
 
 
 handleSubmit(event) {
-  axios.get('http://api.brewerydb.com/v2/locations?key=5d2a32cf36729810ffae82e7193a9769&region=' + this.state.region)
+  axios.get('http://localhost:8080/api/proxy/breweries/' + this.state.region)
     .then(res => {
       console.log(res.data.data);
       const categories = res.data.data;
@@ -53,6 +54,7 @@ render() {
           <li key={category.brewery.name}>{category.brewery.name}</li>
         )}
       </ul>
+      <Gmap categories = {this.state.categories}/>
     </div>
     );
   }
