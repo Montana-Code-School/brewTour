@@ -25248,20 +25248,21 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var coords = {
-  lat: 51.5258541,
-  lng: -0.08040660000006028
-};
-
 var params = { v: '3.exp', key: 'AIzaSyDjzkSWSOc8KAZyrefu8JdI58dG14dpPhU' };
 
 var Gmap = function (_React$Component) {
   _inherits(Gmap, _React$Component);
 
-  function Gmap() {
+  function Gmap(props) {
     _classCallCheck(this, Gmap);
 
-    return _possibleConstructorReturn(this, (Gmap.__proto__ || Object.getPrototypeOf(Gmap)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Gmap.__proto__ || Object.getPrototypeOf(Gmap)).call(this, props));
+
+    _this.state = {
+      latAverage: [],
+      lngAverage: []
+    };
+    return _this;
   }
 
   _createClass(Gmap, [{
@@ -25270,6 +25271,21 @@ var Gmap = function (_React$Component) {
       map.setOptions({
         disableDefaultUI: true
       });
+    }
+  }, {
+    key: 'getAverage',
+    value: function getAverage(arr) {
+      if (arr.length > 0) {
+        var equation = arr.sort(function (a, b) {
+          return a - b;
+        }).slice(1, arr.length).reduce(function (a, b) {
+          return a + b;
+        }) / (arr.length - 2);
+        console.log(equation);
+        return equation;
+      } else {
+        return 0;
+      }
     }
   }, {
     key: 'onDragEnd',
@@ -25283,29 +25299,42 @@ var Gmap = function (_React$Component) {
     }
   }, {
     key: 'onClick',
-    value: function onClick(e) {
-      console.log('onClick', e);
+    value: function onClick() {
+      console.log('onClick');
     }
   }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
 
-      var markLoop = this.props.categories.map(function (brewery) {
+      var markLoop = this.props.categories.map(function (brewery, i) {
+
+        _this2.state.latAverage.push(brewery.latitude);
+        _this2.state.lngAverage.push(brewery.longitude);
+
         return _react2.default.createElement(_reactGmaps.Marker, {
+          key: brewery.breweryId,
           lat: brewery.latitude,
           lng: brewery.longitude,
-          draggable: true,
-          onDragEnd: _this2.onDragEnd });
+          draggable: false,
+          clickable: true,
+          onClick: function onClick(e) {
+            var infowindow = new google.maps.InfoWindow({
+              content: brewery.locality + i,
+              position: e.latLng
+            });
+            infowindow.open(this.get('map'), this);
+          } });
       });
+
       return _react2.default.createElement(
         _reactGmaps.Gmaps,
         {
           width: '800px',
           height: '600px',
-          lat: coords.lat,
-          lng: coords.lng,
-          zoom: 12,
+          lat: this.getAverage(this.state.latAverage) === 0 ? 41.8679 : this.getAverage(this.state.latAverage),
+          lng: this.getAverage(this.state.lngAverage) === 0 ? -124.1490 : this.getAverage(this.state.lngAverage),
+          zoom: 5,
           loadingMessage: 'Be happy',
           params: params,
           onMapCreated: this.onMapCreated },
