@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+h1, button {
+  font-family:Arvo !important;
+  font-size: 3.2em;
+}
+
+body {
+  width:100%;
+  background-color:black;
+  font-family:Lato;
+  line-height:130% !important;
+}
+
+h2, h3 {
+  font-family:Lato;
+  line-height:130% !important;
+}
+
+ul {
+  list-style:none;
+}
+
+.table {
+  background-color:lightgray;
+}
+
+th {
+  background-color:orange;
+}
+
+.navContainer {
+  background-color:white;
+  padding:1.75em 2.5em;
+  text-align:right;
+  font-family:Arvo;
+}
+
+.navContainer ul li {
+  display:inline !important;
+  padding-right:1.2em;
+  font-size:1.2em;
+}
+
+.navContainer ul {
+  margin-top:2.5em;
+}
+
+.introContainer {
+  border-bottom:orange 3px solid;
+  padding:2.2em 0em 2.2em 2.2em;
+  color:white;
+  line-height:200% !important;
+  text-transform:uppercase;
+  background-image:url('./img/introBkgdFinal.jpg');
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.introContainer .row {
+  margin: 4em 0em !important;
+}
+
+.btn-primary {
+  padding:1em 2em !important;
+  margin-top:2em;
+  font-size:1.3em !important;
+}
+
+.btnIcon {
+  padding-left:1.5em;
+}
+
+.mainContainer {
+  border-bottom:orange 3px solid;
+  padding:2.2em 2.2em 2.2em 4em;
+}
+
+.mainContainer .mainRow {
+  margin: 4em 0em !important;
+}
+
+.mainContainer form {
+  height: 55px;
+  margin-bottom:3.5em;
+}
+
+.stateInput {
+  width: 420px;
+  padding: .8em;
+  border-radius: .3em;
+  font-size: large;
+  height:100%;
+}
+
+.stateInputBtn {
+  height: 100%;
+  padding: .8em;
+  border-top-right-radius: .3em;
+  border-bottom-right-radius: .3em;
+  margin-left: -3px;
+  background-color:#0766ff;
+  color:white;
+}
+
+input.stateInputBtn.fa.fa-search {
+  font-size:large !important;
+}
+
+form.row {
+  margin: 0em 0em 2.3em 0em !important;
+  width:100% !important;
+}
+
+.breweryListContainer {
+  height:350px;
+  overflow:auto;
+  color:black;
+  line-height:2.0em;
+  border-radius:0.3em;
+  margin-bottom:3.5em;
+}
+
+.whiteRow {
+  background-color:white !important;
+}
+
+.brewerListContainer .row{
+  border-bottom:1px solid white !important;
+}
+
+.listBtn{
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom: 1px solid #0766ff;
+}
+
+.breweryListBtn {
+  background-color:orange !important;
+  padding:1em 2em !important;
+  font-size:1.3em !important;
+  width:420px;
+}
+
+.footerContainer {
+  background-color:#0766ff;
+  padding:2.2em;
+  color:white;
+}
+
+.footerNav {
+  list-style:none;
+  text-align:center;
+}
+
+.footerNav li {
+  display:inline !important;
+  padding-left:.5em;
+}
+
+.teamImages ul {
+  list-style:none;
+  text-align:right;
+}
+
+.teamImages ul li {
+display:inline !important;
+padding-right:1.2em;
+font-size:1.2em;
+}
+
+.btn-primary {
+  background-color:#0766ff !important;
+}
