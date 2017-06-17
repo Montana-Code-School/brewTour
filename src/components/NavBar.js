@@ -8,7 +8,9 @@ render() {
   return (
     <div className = 'navContainer'>
       <div className = 'row'>
-        <img src='img/logo.png' className='col-lg-3'/>
+      <div className='col-lg-3'>
+        <img src='img/logo.png' />
+        </div>
         <div className='col-lg-9'>
           <ul className='navMenu'>
             <li>SEARCH BREWERIES</li>

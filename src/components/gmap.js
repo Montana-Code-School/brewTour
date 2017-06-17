@@ -64,7 +64,7 @@ constructor(props) {
 
     return (
       <Gmaps
-        width={'800px'}
+        width={'570px'}
         height={'600px'}
         lat={(this.getAverage(this.props.lat) === 0) ? 41.8679 : this.getAverage(this.props.lat)}
         lng={(this.getAverage(this.props.lng) === 0) ? -124.1490 : this.getAverage(this.props.lng)}

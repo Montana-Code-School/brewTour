@@ -6,12 +6,20 @@ h1, button {
   font-size: 3.2em;
 }
 
+body {
+  width:100%;
+  background-color:black;
+  font-family:Lato;
+  line-height:130% !important;
+}
+
 #root {
   width:100%;
   background-color:black;
   font-family:Lato;
   line-height:130% !important;
 }
+
 
 h2, h3 {
   font-family:Lato;
@@ -53,7 +61,7 @@ th {
   color:white;
   line-height:200% !important;
   text-transform:uppercase;
-  background-image:url('./img/introBkgdFinal.jpg');
+  background-image:url('../img/introBkgdFinal.jpg');
   background-repeat: no-repeat;
   background-position: top right;
 }
