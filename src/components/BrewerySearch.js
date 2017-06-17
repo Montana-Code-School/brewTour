@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 import Intro from './Intro';
 import Footer from './Footer';
 import {auth, db} from '../config/configFirebase';
+import CreateTour from './CreateTour';
 
 class BrewerySearch extends React.Component {
   constructor(props) {
@@ -21,7 +22,6 @@ class BrewerySearch extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.storeTour = this.storeTour.bind(this);
 
   }
 
@@ -63,13 +63,6 @@ buttonClicked(event) {
   )
 }
 
-storeTour(userId) {
- db.ref().child('users').child(auth.currentUser.uid).update({
-   tour: this.state.tourArr
- });
-}
-
-
 render() {
   return (
     <div>
@@ -103,12 +96,10 @@ render() {
                   </tbody>
                 </table>
               </div>
-              <div className='text-center'>
-                <button type='button' onClick={this.storeTour.bind(this)} className='btn breweryListBtn'>VIEW THIS TOUR<span className='btnIcon'>></span></button>
-              </div>
             </div>
           </div>
         </div>
+        <CreateTour tourArr={this.state.tourArr}/>
         <Footer />
       </div>
     );
