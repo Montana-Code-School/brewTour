@@ -39,6 +39,22 @@ render() {
           />
         <input type='submit' value="Save my Tour" />
       </form>
+      <table className='table table-striped'>
+        <thead>
+          <tr>
+          <th>BREWERY NAME</th>
+          <th>REMOVE</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.state.tourArr.map((spot) =>
+            <tr>
+              <td>{spot.brewery.name}</td>
+              <td>X</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </div>
   );
 }

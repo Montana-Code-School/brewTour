@@ -7,6 +7,7 @@ import Intro from './Intro';
 import Footer from './Footer';
 import {auth, db} from '../config/configFirebase';
 import CreateTour from './CreateTour';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 class BrewerySearch extends React.Component {
   constructor(props) {
@@ -58,6 +59,7 @@ handleSubmit(event) {
 
 buttonClicked(event) {
   this.state.tourArr.push(this.state.categories[event.target.value]);
+
   this.state.tourBrewNames = this.state.tourArr.map((brewery, i) =>
     this.state.tourArr[i].brewery.name
   )
@@ -78,28 +80,40 @@ render() {
                 <input className="stateInput col-lg-10" type="text" placeholder="Search By State..." value={this.state.region} onChange={this.handleChange.bind(this)}/>
                 <input className="stateInputBtn fa fa-search col-lg-2" type="submit" value="&#xf002;" onChange={this.handleSubmit.bind(this)}/>
               </form>
-              <div className='breweryListContainer'>
-                <table className='table table-striped'>
-                  <thead>
-                    <tr>
-                    <th>BREWERY NAME</th>
-                    <th>SAVE IT!</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {this.state.categories.map((category, i) =>
-                      <tr>
-                      <td key={i}>{category.brewery.name}</td>
-                      <td><button type='button' value={i} onClick={this.buttonClicked.bind(this)} className='btn listBtn'>ADD TO YOUR TOUR<span className='btnIcon'>></span></button></td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
+                <Tabs>
+                  <TabList>
+                    <Tab>{this.state.region + " "} Breweries</Tab>
+                    <Tab>MY CURRENT TOUR</Tab>
+                  </TabList>
+
+                  <TabPanel>
+                    <div className='breweryListContainer'>
+                      <table className='table table-striped'>
+                        <thead>
+                          <tr>
+                          <th>BREWERY NAME</th>
+                          <th>SAVE IT!</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {this.state.categories.map((category, i) =>
+                            <tr>
+                            <td key={i}>{category.brewery.name}</td>
+                            <td><button type='button' value={i} onClick={this.buttonClicked.bind(this)} className='btn listBtn'>ADD TO YOUR TOUR<span className='btnIcon'>></span></button></td>
+                            </tr>
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+                  </TabPanel>
+                  <TabPanel>
+                    <CreateTour tourArr={this.state.tourArr}/>
+                  </TabPanel>
+                </Tabs>
               </div>
             </div>
           </div>
-        </div>
-        <CreateTour tourArr={this.state.tourArr}/>
+
         <Footer />
       </div>
     );
