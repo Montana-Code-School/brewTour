@@ -15,5 +15,5 @@ export const auth = firebaseApp.auth();
 export const storageKey = 'brew-login-mrwickpk'
 
 export const isAuthenticated = () => {
-  return !!auth.currentUser || !!localStorage.getItem(storageKey);
+  return auth.currentUser || localStorage.getItem(storageKey);
 }

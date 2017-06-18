@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import {Link, Redirect} from 'react-router-dom';
 
 class NavBar extends React.Component {
 
@@ -19,7 +20,9 @@ render() {
             <li>|</li>
             <li>SITE USE</li>
             <li>|</li>
+            <Link to="/profile">
             <li>MY PROFILE</li>
+            </Link>
           </ul>
         </div>
       </div>
