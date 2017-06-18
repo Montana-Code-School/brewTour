@@ -65,6 +65,10 @@ buttonClicked(event) {
   )
 }
 
+componentDidMount() {
+  console.log(db.ref());
+}
+
 render() {
   return (
     <div>

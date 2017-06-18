@@ -30,6 +30,7 @@ class CreateTour extends React.Component {
 render() {
   return(
     <div>
+      {console.log(auth.currentUser.uid)}
       <form onSubmit={this.handleSubmit.bind(this)}>
         <input
           type='text'
