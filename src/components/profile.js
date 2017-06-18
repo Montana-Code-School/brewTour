@@ -8,43 +8,37 @@ class Profile extends React.Component {
     super(props);
 
     this.state = {
-      userName:''
+      userName:'',
+      myTours: '',
+      myArr:[]
       //profilePic: auth.currentUser.profilePic
     };
   }
 
-  getUser(userName) {
-    console.log("inside getUser()")
-    this.setState({
-      userName: userName
-    })
-
-    console.log(userName);
-  }
 
 
   componentDidMount() {
     db.ref('/users/' + window.localStorage['brew-login-mrwickpk']).on('value', function(snapshot) {
-      console.log("hello");
       window.localStorage.setItem('userName', snapshot.val().displayName);
-
+      window.localStorage.setItem('myTours', JSON.stringify(snapshot.val().tours));
     });
+    const myArr = Object.keys(JSON.parse(window.localStorage.getItem('myTours')));
+
     this.setState({
-      userName:window.localStorage.userName
+      userName: window.localStorage.userName,
+      myTours: window.localStorage.myTours,
+      myArr: myArr
     })
-
-  //   console.log(userName);
-
-  //  var userName = db.ref('/users/' + auth.currentUser.uid).('value').then(function(snapshot) {
-  //   return snapshot.val().displayName;
-  //   console.log("I'm In db ref");
-  //   console.log(snapshot.val().displayName);
-  // });
-  // this.getUser(userName);
-  // console.log("outside");
-  // console.log(this.state.userName);
 }
 
+displayTour() {
+  return(
+
+    <div>
+      <p>Hello World</p>
+    </div>
+  );
+}
 
   render() {
     return(
@@ -52,7 +46,16 @@ class Profile extends React.Component {
         <h1>Hello {this.state.userName}</h1>
         <div>
           <h2>My Tours</h2>
-
+          <ul>
+            {this.state.myArr.map(tourName => {
+              return(
+                <button onClick={this.displayTour.bind(this)} value={tourName}>
+                  {tourName}
+                </button>
+              );
+            })}
+          </ul>
+          {this.displayTour()}
         </div>
       </div>
     );
