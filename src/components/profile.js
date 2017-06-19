@@ -1,5 +1,9 @@
 import React from 'react';
 import {auth, db} from '../config/configFirebase';
+import Logout from './Logout';
+import DisplayBreweries from "./DisplayBreweries";
+
+
 
 
 
@@ -10,7 +14,7 @@ class Profile extends React.Component {
     this.state = {
       userName:'',
       myTours: '',
-      myArr:[]
+      tourNames:[]
       //profilePic: auth.currentUser.profilePic
     };
   }
@@ -22,40 +26,33 @@ class Profile extends React.Component {
       window.localStorage.setItem('userName', snapshot.val().displayName);
       window.localStorage.setItem('myTours', JSON.stringify(snapshot.val().tours));
     });
-    const myArr = Object.keys(JSON.parse(window.localStorage.getItem('myTours')));
+    const mainObj = JSON.parse(window.localStorage.getItem('myTours'));
+    const tourNames = Object.keys(mainObj);
+    console.log(mainObj);
 
     this.setState({
       userName: window.localStorage.userName,
-      myTours: window.localStorage.myTours,
-      myArr: myArr
+      mainObj: mainObj,
+      tourNames: tourNames
     })
 }
 
-displayTour() {
-  return(
 
-    <div>
-      <p>Hello World</p>
-    </div>
-  );
-}
 
   render() {
     return(
       <div>
+       <Logout />
         <h1>Hello {this.state.userName}</h1>
         <div>
           <h2>My Tours</h2>
           <ul>
-            {this.state.myArr.map(tourName => {
+            {this.state.tourNames.map(tourName => {
               return(
-                <button onClick={this.displayTour.bind(this)} value={tourName}>
-                  {tourName}
-                </button>
+              <DisplayBreweries breweryArr={this.state.mainObj[tourName]} tourName={tourName}/>
               );
             })}
           </ul>
-          {this.displayTour()}
         </div>
       </div>
     );

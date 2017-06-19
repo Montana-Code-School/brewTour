@@ -2,6 +2,7 @@ import React from "react";
 import {db, auth} from "../config/configFirebase";
 
 
+
 class CreateTour extends React.Component {
   constructor(props) {
     super(props);
@@ -30,7 +31,6 @@ class CreateTour extends React.Component {
 render() {
   return(
     <div>
-      {console.log(auth.currentUser.uid)}
       <form onSubmit={this.handleSubmit.bind(this)}>
         <input
           type='text'
