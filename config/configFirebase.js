@@ -12,6 +12,7 @@ const firebaseApp = firebase.initializeApp(config);
 
 export const db = firebaseApp.database();
 export const auth = firebaseApp.auth();
+export const storagePic = firebaseApp.storage().ref();
 export const storageKey = 'brew-login-mrwickpk'
 
 export const isAuthenticated = () => {

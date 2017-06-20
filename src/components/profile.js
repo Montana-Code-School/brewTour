@@ -2,7 +2,7 @@ import React from 'react';
 import {auth, db} from '../config/configFirebase';
 import Logout from './Logout';
 import DisplayBreweries from "./DisplayBreweries";
-
+import NavBar from './NavBar';
 
 
 
@@ -15,16 +15,16 @@ class Profile extends React.Component {
       userName:'',
       myTours: '',
       tourNames:[],
-      mainObj: ''
+      mainObj: '',
+      profileImg: ''
       //profilePic: auth.currentUser.profilePic
     };
   }
 
-
-
   componentDidMount() {
     db.ref('/users/' + window.localStorage['brew-login-mrwickpk']).on('value', function(snapshot) {
       window.localStorage.setItem('userName', snapshot.val().displayName);
+      window.localStorage.setItem('profileImg', snapshot.val().photoURL);
       window.localStorage.setItem('myTours', JSON.stringify(snapshot.val().tours));
     });
     const mainObj = JSON.parse(window.localStorage.getItem('myTours'));
@@ -33,18 +33,21 @@ class Profile extends React.Component {
 
     this.setState({
       userName: window.localStorage.userName,
+      profileImg: window.localStorage.profileImg,
       mainObj: mainObj,
       tourNames: tourNames
     })
 }
 
 
-
   render() {
     return(
       <div>
+      <NavBar />
        <Logout />
+       
         <h1>Hello {this.state.userName}</h1>
+        <img src={this.state.profileImg} />
         <div>
           <h2>My Tours</h2>
           <ul>
