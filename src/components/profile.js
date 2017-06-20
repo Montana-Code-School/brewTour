@@ -14,7 +14,8 @@ class Profile extends React.Component {
     this.state = {
       userName:'',
       myTours: '',
-      tourNames:[]
+      tourNames:[],
+      mainObj: ''
       //profilePic: auth.currentUser.profilePic
     };
   }
