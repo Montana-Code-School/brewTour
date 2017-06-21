@@ -18,7 +18,9 @@ render() {
             <li>|</li>
             <li>ABOUT</li>
             <li>|</li>
-            <li>SITE USE</li>
+            <Link to="/SiteUse">
+              <li>SITE USE</li>
+            </Link>
             <li>|</li>
             <Link to="/profile">
             <li>MY PROFILE</li>

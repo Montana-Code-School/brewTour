@@ -6,6 +6,7 @@ import {Home} from './components/home';
 import Profile from './components/profile';
 import Register from './components/register';
 import PropTypes from 'prop-types';
+import SiteUse from './components/SiteUse';
 
 
 class App extends Component {
@@ -48,6 +49,7 @@ class App extends Component {
         <Route path="/register" component={Register} />
         <MatchWhenAuthorized path="/profile" component={Profile} />
         <MatchWhenAuthorized path="/brewerysearch" component={BrewerySearch} />
+        <MatchWhenAuthorized path="/siteuse" component={SiteUse} />
       </div>
     </BrowserRouter>
     );
