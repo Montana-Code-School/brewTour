@@ -31,20 +31,23 @@ class Register extends React.Component {
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-    const uploadTask = this.storageRef.child(this.state.profileImg.name).put(this.state.profileImg);
-    uploadTask.then((snapshot) => {
-      db.ref().child('users').child(auth.currentUser.uid).child('photoURL').set(snapshot.downloadURL);
-    });
 
 
     this.setState({showErrors:true});
     if (this.validateForm()) {
+
       auth.createUserWithEmailAndPassword(this.state.email, this.state.password).then(user => {
         db.ref().child('users').child(user.uid).set({
           email: user.email,
           displayName: this.state.displayName,
           profileImg: this.state.profileImg
         });
+
+        const uploadTask = this.storageRef.child(this.state.profileImg.name).put(this.state.profileImg);
+        uploadTask.then((snapshot) => {
+          db.ref().child('users').child(auth.currentUser.uid).child('photoURL').set(snapshot.downloadURL);
+        });
+
         user.updateProfile({
           displayName: this.state.displayName,
           profileImg: this.state.profileImg
