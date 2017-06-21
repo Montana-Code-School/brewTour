@@ -165,6 +165,7 @@ form.row {
 .footerNav li {
   display:inline !important;
   padding-left:.5em;
+  margin-bottom: -50px;
 }
 
 .teamImages ul {
@@ -184,4 +185,5 @@ font-size:1.2em;
 
 .siteuse {
   color: white !important;
+  font-family: lato;
 }
