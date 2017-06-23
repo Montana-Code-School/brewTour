@@ -43,23 +43,27 @@ class Profile extends React.Component {
   render() {
     return(
       <div>
-      <NavBar />
-       <Logout />
-
-        <h1>Hello {this.state.userName}</h1>
-        <img src={this.state.profileImg} />
-        <div>
-          <h2>My Tours</h2>
-          <ul>
-            {this.state.tourNames.map(tourName => {
-              return(
-              <DisplayBreweries breweryArr={this.state.mainObj[tourName]} tourName={tourName}/>
-              );
-            })}
-          </ul>
-        </div>
+        <NavBar />
+          <div className="profilePageContainer">
+            <div className="profilePicContainer">
+              <img className="userProfileImg" src={this.state.profileImg} />
+              <h1><span className="greeting">Hello</span> {this.state.userName}</h1>
+              <Logout />
+            </div>
+            <div className="profilePageRightSide">
+            <h2>My Tours</h2>
+              <div className="profileToursContainer">
+                <ul>
+                  {this.state.tourNames.map(tourName => {
+                    return(
+                    <DisplayBreweries breweryArr={this.state.mainObj[tourName]} tourName={tourName}/>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          </div>
         <Footer />
-
       </div>
     );
   }

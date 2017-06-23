@@ -22,7 +22,8 @@ render() {
   return(
 
     <div>
-      <button onClick={this.handleClick.bind(this)}>
+      <img src='img/beerFillPlaceholder.png' />
+      <button className="displayBrewTourNameBtn" onClick={this.handleClick.bind(this)}>
          {this.state.tourName}
       </button>
       <ul>

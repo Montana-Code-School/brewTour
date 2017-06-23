@@ -4,6 +4,7 @@ import {isAuthenticated, auth, storageKey} from './config/configFirebase';
 import BrewerySearch from './components/BrewerySearch';
 import {Home} from './components/home';
 import Profile from './components/profile';
+import SiteUse from './components/SiteUse'
 import Register from './components/register';
 import PropTypes from 'prop-types';
 
@@ -46,6 +47,7 @@ class App extends Component {
       <div className="wrapper">
         <Route exact path="/" component={Home} />
         <Route path="/register" component={Register} />
+        <Route path="/siteuse" component={SiteUse} />
         <MatchWhenAuthorized path="/profile" component={Profile} />
         <MatchWhenAuthorized path="/brewerysearch" component={BrewerySearch} />
       </div>
