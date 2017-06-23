@@ -4,6 +4,8 @@
 h1, button {
   font-family:Arvo !important;
   font-size: 3.2em;
+  color: lightblue;
+  text-indent: 40px;
 }
 
 body {
@@ -28,6 +30,12 @@ h2, h3 {
 
 ul {
   list-style:none;
+}
+
+li {
+  font-family:Arvo;
+  font-size: 20px;
+  line-height: 160%;
 }
 
 .table {
@@ -153,7 +161,7 @@ form.row {
 
 .footerContainer {
   background-color:#0766ff;
-  padding:2.2em;
+  padding:.9em;
   color:white;
 }
 
@@ -177,6 +185,12 @@ form.row {
 display:inline !important;
 padding-right:1.2em;
 font-size:1.2em;
+
+}
+
+.footerImage {
+  width: 13% !important;
+  height: 13% !important;
 }
 
 .btn-primary {
@@ -184,6 +198,6 @@ font-size:1.2em;
 }
 
 .siteuse {
-  color: white !important;
+  color: lightblue !important;
   font-family: lato;
 }

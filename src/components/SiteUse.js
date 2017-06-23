@@ -14,25 +14,29 @@ class SiteUse extends React.Component {
   render() {
     return (
       <div>
-      <NavBar />
-      <div className="siteuse">
-      <h1>Site Use</h1>
-      <ul>
-        <li>Click "Search Breweries" button in nav bar</li>
-        <li>Type in name of state to visit</li>
-        <ul>
-          <li>A list of breweries and a Google Map will appear</li>
-        </ul>
-        <li>Click on a brewery to bring up their web page</li>
-        <li>Click on "Back" button to return to Brew Tour home site</li>
-        <ul>
-          <li>Click on "Add to my tour" button if interested</li>
-          <li>If not, click on another brewery</li>
-        </ul>
-        <li>Click on "My Tour" button to view a list of breweries and beers youd like to try</li>
-        </ul>
+        <NavBar />
+        <div className="siteuse">
+          <h1>SITE USE</h1>
+          <ul>
+            <li>• CLICK "SEARCH BREWERIES" IN NAVIGATION BAR</li>
+            <li>• TYPE IN NAME OF STATE TO VISIT</li>
+            <ul>
+              <li>• A LIST OF BREWERIES AND A GOOGLE MAP WILL APPEAR</li>
+              <li>• CLICK ON A BREWERY TO BRING UP THEIR WEB PAGE</li>
+              <li>• CLICK ON "BACK" TO RETURN TO BREW TOUR HOME PAGE</li>
+            </ul>
+            <li>• IF INTERESTED, CLICK ON "ADD TO MY TOUR"</li>
+            <li>• CLICK ON BEERS YOU WOULD LIKE TO TRY</li>
+            <li>• IF NOT INTERESTED, SIMPLY CLICK ANOTHER BREWERY</li>
+            <li>• CLICK ON "MY TOUR" TO VIEW A LIST OF BREWERIES AND BEERS YOU WOULDD LIKE TO TRY</li>
+            <li>• CLICK ON "TOUR DIARY"</li>
+              <ul>
+                <li>• WRITE A BRIEF REVIEW OF BREWERY AND BEERS YOU TRIED</li>
+                <li>• CLICK STARS TO GIVE A RATING FROM 1 TO 5</li>
+              </ul>
+          </ul>
         </div>
-      <Footer />
+        <Footer />
       </div>
     );
   }

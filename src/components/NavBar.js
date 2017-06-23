@@ -10,7 +10,7 @@ render() {
     <div className = 'navContainer'>
       <div className = 'row'>
       <div className='col-lg-3'>
-        <img src='img/logo.png' />
+        <a href="/"><img alt="Brew Tour Logo" src='img/logo.png' /></a>
         </div>
         <div className='col-lg-9'>
           <ul className='navMenu'>
