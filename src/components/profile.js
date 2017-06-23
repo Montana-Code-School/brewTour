@@ -3,7 +3,7 @@ import {auth, db} from '../config/configFirebase';
 import Logout from './Logout';
 import DisplayBreweries from "./DisplayBreweries";
 import NavBar from './NavBar';
-
+import Footer from './Footer';
 
 
 
@@ -45,7 +45,7 @@ class Profile extends React.Component {
       <div>
       <NavBar />
        <Logout />
-       
+
         <h1>Hello {this.state.userName}</h1>
         <img src={this.state.profileImg} />
         <div>
@@ -58,6 +58,8 @@ class Profile extends React.Component {
             })}
           </ul>
         </div>
+        <Footer />
+
       </div>
     );
   }

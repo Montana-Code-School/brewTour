@@ -5,6 +5,7 @@ const TextField = ({value, label, errorText, onFieldChanged, type, showError}) =
   <div className="InputGroup">
     <h4>{label}</h4>
     <input
+      className="generalInputs"
       type={type}
       placeholder = {label}
       value = {value}

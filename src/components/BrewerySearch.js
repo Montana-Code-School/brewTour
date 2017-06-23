@@ -8,6 +8,7 @@ import Footer from './Footer';
 import {auth, db} from '../config/configFirebase';
 import CreateTour from './CreateTour';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import SimpleModal from './SimpleModal';
 
 class BrewerySearch extends React.Component {
   constructor(props) {
@@ -18,7 +19,9 @@ class BrewerySearch extends React.Component {
       tourArr: [],
       region: "",
       latArr: [],
-      lngArr: []
+      lngArr: [],
+      show: '',
+      close: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -32,7 +35,6 @@ class BrewerySearch extends React.Component {
       region: region
     });
   }
-
 
 
 handleSubmit(event) {
@@ -85,9 +87,9 @@ render() {
                 <input className="stateInputBtn fa fa-search col-lg-2" type="submit" value="&#xf002;" onChange={this.handleSubmit.bind(this)}/>
               </form>
                 <Tabs>
-                  <TabList>
-                    <Tab>{this.state.region + " "} Breweries</Tab>
-                    <Tab>MY CURRENT TOUR</Tab>
+                  <TabList className="row tabNav">
+                    <Tab className="col-md-4">{this.state.region + " "} BREWERIES</Tab>
+                    <Tab className="col-md-4">MY TOUR</Tab>
                   </TabList>
 
                   <TabPanel>
@@ -116,8 +118,8 @@ render() {
                 </Tabs>
               </div>
             </div>
+            <SimpleModal />
           </div>
-
         <Footer />
       </div>
     );

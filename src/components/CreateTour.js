@@ -1,6 +1,6 @@
 import React from "react";
 import {db, auth} from "../config/configFirebase";
-
+import Modal from 'react-bootstrap-modal';
 
 
 class CreateTour extends React.Component {
@@ -10,9 +10,15 @@ class CreateTour extends React.Component {
     this.state = {
       tourArr: this.props.tourArr,
       tourName: '',
-      itemToRemove: ''
+      itemToRemove: '',
+      open: ''
     };
   }
+
+    closeModal = () => this.setState({ open: false })
+    openModal = () => this.setState({ open: true })
+    saveAndClose = () => {
+      this.setState({ open: false }) }
 
   handleChange(event) {
     this.setState({
@@ -26,8 +32,9 @@ class CreateTour extends React.Component {
     db.ref().child('users').child(auth.currentUser.uid).child('tours').update({
       [tour]: this.state.tourArr
     });
-
+    this.openModal();
   }
+
 
   removeItemClicked(event) {
     this.state.itemToRemove = this.state.tourArr.indexOf(event.target.value);
@@ -42,15 +49,26 @@ class CreateTour extends React.Component {
 render() {
   return(
     <div>
-      <form onSubmit={this.handleSubmit.bind(this)}>
-        <input
-          type='text'
-          placeholder="Enter your Tour's unique name!"
-          value={this.state.tourName}
-          onChange={this.handleChange.bind(this)}
-          />
-        <input type='submit' value="Save my Tour" />
-      </form>
+      <div>
+        <Modal
+          show={this.state.open}
+          onHide={this.closeModal}
+          aria-labelledby="ModalHeader"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title className='testHeader' id='ModalHeader'>TOUR SAVED!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>Make More Tours Or Navigate To Your Profile To See Your Saved Tours</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <button className='btn btn-primary' onClick={this.saveAndClose}>
+              OK
+            </button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+
       <table className='table table-striped'>
         <thead>
           <tr>
@@ -67,6 +85,17 @@ render() {
           )}
         </tbody>
       </table>
+      <form className="createTourForm row" onSubmit={this.handleSubmit.bind(this)}>
+        <input
+          type='text'
+          placeholder="Enter your Tour's unique name!"
+          value={this.state.tourName}
+          className="tourNameInput col-lg-10"
+          onChange={this.handleChange.bind(this)}
+          />
+        <input className="col-lg-2 stateInputBtn" type="submit" value="SAVE" />
+      </form>
+
     </div>
   );
 }

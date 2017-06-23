@@ -16,7 +16,6 @@ const HomePage = withRouter(({uid, push}) => (
 <main>
  <Login />
   <div className="welcome">
-    <h1>Welcome to BrewTour!</h1>
   </div>
 </main>
 ));

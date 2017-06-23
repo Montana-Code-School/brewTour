@@ -14,14 +14,14 @@ render() {
         </div>
         <div className='col-lg-9'>
           <ul className='navMenu'>
-            <li>SEARCH BREWERIES</li>
-            <li>|</li>
-            <li>ABOUT</li>
+            <Link to="/BrewerySearch">
+              <li>SEARCH BREWERIES</li>
+            </Link>
             <li>|</li>
             <li>SITE USE</li>
             <li>|</li>
             <Link to="/profile">
-            <li>MY PROFILE</li>
+              <li>MY PROFILE</li>
             </Link>
           </ul>
         </div>

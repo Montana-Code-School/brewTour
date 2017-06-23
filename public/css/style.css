@@ -6,6 +6,14 @@ h1, button {
   font-size: 3.2em;
 }
 
+.testHeader {
+  color:white;
+}
+
+.modal {
+  display:block;
+}
+
 body {
   width:100%;
   background-color:black;
@@ -144,6 +152,10 @@ form.row {
   border-bottom: 1px solid #0766ff;
 }
 
+.listBtn a:target {
+  background-color:orange;
+}
+
 .breweryListBtn {
   background-color:orange !important;
   padding:1em 2em !important;
@@ -180,4 +192,117 @@ font-size:1.2em;
 
 .btn-primary {
   background-color:#0766ff !important;
+}
+
+.tabNav ul{
+  margin: 0em 0em -1em 0em;
+  padding: 0px !important;
+}
+
+.tabNav li {
+  background-color:lightgray;
+  padding:.7em .7em .7em 1em;
+  border-top-right-radius: 1.5em;
+  border-top-left-radius: 1.5em;
+  border-right: 1px solid black;
+  border-bottom: 3px solid black;
+  font-size:small;
+}
+
+ul.row.tabNav {
+  padding: 0em;
+  margin:0em;
+}
+
+.firstTabTitle {
+  border-right: 1px solid black;
+}
+
+.createTourForm {
+  margin-top:2em;
+}
+
+.tourNameInput {
+  width: 420px;
+  padding: .8em;
+  border-radius: .3em;
+  font-size: large;
+  height:100%;
+  background-color:lightyellow;
+}
+
+.stateInputBtn {
+  height: 100%;
+  padding: .8em;
+  border-top-right-radius: .3em;
+  border-bottom-right-radius: .3em;
+  margin-left: -3px;
+  background-color:#0766ff;
+  color:white;
+}
+
+.generalInputs {
+  width: 420px;
+  padding: .8em;
+  border-radius: .3em;
+  font-size: large;
+  height:100%;
+}
+
+.loginBtns {
+  width: 420px;
+  display:block;
+  margin: 0 auto;
+}
+
+.loginBtns button {
+  width:210px !important;
+  font-size: small;
+  padding:1.2em;
+  margin-top:3.5em;
+}
+
+.loginContainer {
+  width:550px;
+  display:block;
+  margin: 0 auto;
+  background: rgba(180, 180, 180, .7);
+  padding: 4em .5em;
+  margin-top: 10em;
+  text-align: center;
+  border-radius:2em;
+}
+
+.registerContainer {
+  width:550px;
+  display:block;
+  margin: 0 auto;
+  background: rgba(180, 180, 180, .7);
+  padding: 4em .5em;
+  margin-top: 2em;
+  text-align: center;
+  border-radius:2em;
+}
+
+.loginContainer img, .registerContainer img {
+  display: block;
+  margin: 0 auto;
+}
+
+.loginContainer .generalInputs, .registerContainer .generalInputs {
+  display:block;
+  margin: 0 auto;
+}
+
+.loginContainer h4, .registerContainer h4 {
+  visibility: hidden;
+}
+
+.loginBkgd {
+  background-image: url('../img/beerCloseUp.jpg');
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }

@@ -12,10 +12,12 @@
     "react": "^15.5.4",
     "react-addons-shallow-compare": "^15.4.1",
     "react-addons-transition-group": "^15.4.1",
+    "react-bootstrap-modal": "^3.0.1",
     "react-dom": "^15.4.1",
     "react-gmaps": "^1.6.0",
     "react-router-dom": "4.1.0",
-    "react-tabs": "^1.1.0"
+    "react-tabs": "^1.1.0",
+    "simple-react-modal": "^0.5.1"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"

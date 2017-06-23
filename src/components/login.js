@@ -37,16 +37,19 @@ class Login extends React.Component {
     const {redirectToReferrer, showErrors} = this.state;
 
     return (
-      <main>
+      <main className="loginBkgd">
         {redirectToReferrer && (
           <Redirect to={from || '/brewerysearch'} />
         )}
         {from && (
           <p>You must log in to view page at <code>{from.pathname}</code></p>
         )}
-        <div>
+        <div className="loginContainer">
+        <img src='img/logo.png' />
+
           <form onSubmit={this.handleSubmit}>
             <TextField
+              className="generalInputs"
               value={this.state.email}
               label="Email"
               errorText="Email is required"
@@ -55,6 +58,7 @@ class Login extends React.Component {
               />
 
             <TextField
+              className="generalInputs"
               value={this.state.password}
               label="password"
               errorText="password is required"
@@ -62,9 +66,10 @@ class Login extends React.Component {
               onFieldChanged={e => this.setState({password: e.target.value})}
               type="password"
               />
-
+              <div className="loginBtns">
               <button type="submit">Sign In</button>
-              or <Link to="/register">Create Account</Link>
+              <Link to="/register"><button>Create Account</button></Link>
+              </div>
           </form>
         </div>
       </main>

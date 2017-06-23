@@ -70,13 +70,15 @@ class Register extends React.Component {
   render() {
     const {showErrors, loggedIn} = this.state;
     return (
-      <main>
+      <main className="loginBkgd">
         {loggedIn && (
           <Redirect to = '/brewerysearch'/>
         )}
-        <div>
+        <div className="registerContainer">
+          <img src="img/logo.png" />
           <form onSubmit={this.handleSubmit.bind(this)}>
             <TextField
+              className="generalInputs"
               value={this.state.email}
               label='Email'
               errorText = 'Email Is Required'
@@ -84,6 +86,7 @@ class Register extends React.Component {
               onFieldChanged={e => this.setState({email:e.target.value})}
             />
             <TextField
+              className="generalInputs"
               value={this.state.displayName}
               label='Display Name'
               errorText = 'Display Name Is Required'
@@ -92,6 +95,8 @@ class Register extends React.Component {
             />
             <h4>Profile Picture</h4>
             <input
+              className="generalInputs"
+              size="100"
               type="file"
               name="files[]"
               onChange={(event)=> {
@@ -100,6 +105,7 @@ class Register extends React.Component {
               multiple
             />
             <TextField
+              className="generalInputs"
               value={this.state.password}
               label='Password'
               errorText = 'Password Is Required'
@@ -108,6 +114,7 @@ class Register extends React.Component {
               type='password'
             />
             <TextField
+              className="generalInputs"
               value={this.state.confirm}
               label='Confirm Password'
               errorText = 'Passwords Must Match'
@@ -115,8 +122,10 @@ class Register extends React.Component {
               onFieldChanged={e => this.setState({confirm:e.target.value})}
               type='password'
             />
-            <button type='submit'>Register</button>
-            Or <Link to='/'>Log In</Link>
+            <div className="loginBtns">
+              <button type='submit'>Register</button>
+              <Link to='/'><button>Log In</button></Link>
+            </div>
           </form>
           {console.log(this.state.profilePic)}
         </div>
