@@ -6,18 +6,24 @@ class BrewSearchResults extends React.Component {
     super(props);
 
     this.state = {
-      tourBrewNames:[]
+      tourBrewNames:[],
+      active: null,
+      flag: false
+
     }
   }
 
   buttonClicked(event) {
-    console.log(event.target.value);
     this.props.tourArr.push(this.props.categories[event.target.value]);
 
     this.props.tourArr.map((brewery, i) =>
       this.props.tourArr[i].brewery.name
     )
+
+    event.target.classList.toggle('blueButton');
+
   }
+
 
 render() {
   return (
@@ -35,8 +41,9 @@ render() {
         <tr>
         <td key={i}>{category.brewery.name}</td>
         <td><button type='button' value={i} onClick={this.buttonClicked.bind(this)}
-        className='btn listBtn{i}'
-        style={{backgroundColor:this.props.btnColor}}>ADD TO YOUR TOUR<span className='btnIcon'>></span></button></td>
+        className='btn listBtn'
+        >ADD TO YOUR TOUR<span className='btnIcon'>></span></button></td>
+        <td>{i}</td>
         </tr>
       )}
     </tbody>

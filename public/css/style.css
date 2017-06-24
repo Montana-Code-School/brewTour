@@ -416,3 +416,8 @@ ul.row.tabNav {
   font-family: Arvo;
   color: white;
 }
+
+.blueButton {
+  background-color: blue;
+  color: white;
+}

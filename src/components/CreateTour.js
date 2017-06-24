@@ -10,7 +10,6 @@ class CreateTour extends React.Component {
     this.state = {
       tourArr: this.props.tourArr,
       tourName: '',
-      itemToRemove: '',
       open: ''
     };
   }
@@ -36,11 +35,8 @@ class CreateTour extends React.Component {
   }
 
 
-  removeItemClicked(event) {
-    this.state.itemToRemove = this.state.tourArr.indexOf(event.target.value);
-    this.state.tourArr.splice(this.state.itemToRemove, 1);
-    console.log(this.state.tourArr);
-
+  removeItemClicked(idx) {
+    this.state.tourArr.splice(idx, 1);
     this.setState({
       itemToRemove: ''
     });
@@ -77,10 +73,10 @@ render() {
           </tr>
         </thead>
         <tbody>
-          {this.state.tourArr.map((spot) =>
+          {this.state.tourArr.map((spot, i) =>
             <tr>
               <td>{spot.brewery.name}</td>
-              <td><button type='button' onClick={this.removeItemClicked.bind(this)} className='btn listBtn'>X</button></td>
+              <td><button type='button' onClick={this.removeItemClicked.bind(this, i)} className='btn listBtn'>X</button></td>
             </tr>
           )}
         </tbody>
