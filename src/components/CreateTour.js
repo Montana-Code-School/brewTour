@@ -17,7 +17,11 @@ class CreateTour extends React.Component {
     closeModal = () => this.setState({ open: false })
     openModal = () => this.setState({ open: true })
     saveAndClose = () => {
-      this.setState({ open: false }) }
+      this.setState({
+        open: false
+      })
+      window.location.reload();
+    }
 
   handleChange(event) {
     this.setState({
