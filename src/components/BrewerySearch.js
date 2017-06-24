@@ -9,6 +9,7 @@ import {auth, db} from '../config/configFirebase';
 import CreateTour from './CreateTour';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import SimpleModal from './SimpleModal';
+import BrewSearchResults from './BrewSearchResults';
 
 class BrewerySearch extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class BrewerySearch extends React.Component {
       latArr: [],
       lngArr: [],
       show: '',
+      btnColor: 'lightgray',
       close: ''
     };
 
@@ -32,7 +34,7 @@ class BrewerySearch extends React.Component {
   handleChange(event) {
     const region=event.target.value;
     this.setState({
-      region: region
+      region: region,
     });
   }
 
@@ -59,18 +61,6 @@ handleSubmit(event) {
     event.preventDefault();
 }
 
-buttonClicked(event) {
-  this.state.tourArr.push(this.state.categories[event.target.value]);
-
-  this.state.tourBrewNames = this.state.tourArr.map((brewery, i) =>
-    this.state.tourArr[i].brewery.name
-  )
-}
-
-componentDidMount() {
-  console.log(db.ref());
-}
-
 render() {
   return (
     <div>
@@ -91,26 +81,8 @@ render() {
                     <Tab className="col-md-4">{this.state.region + " "} BREWERIES</Tab>
                     <Tab className="col-md-4">MY TOUR</Tab>
                   </TabList>
-
                   <TabPanel>
-                    <div className='breweryListContainer'>
-                      <table className='table table-striped'>
-                        <thead>
-                          <tr>
-                          <th>BREWERY NAME</th>
-                          <th>SAVE IT!</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {this.state.categories.map((category, i) =>
-                            <tr>
-                            <td key={i}>{category.brewery.name}</td>
-                            <td><button type='button' value={i} onClick={this.buttonClicked.bind(this)} className='btn listBtn'>ADD TO YOUR TOUR<span className='btnIcon'>></span></button></td>
-                            </tr>
-                          )}
-                        </tbody>
-                      </table>
-                    </div>
+                    <BrewSearchResults categories={this.state.categories} tourArr={this.state.tourArr}/>
                   </TabPanel>
                   <TabPanel>
                     <CreateTour tourArr={this.state.tourArr}/>

@@ -320,13 +320,13 @@ ul.row.tabNav {
 
 .profilePicContainer {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   text-align:center;
-  padding:4em 8em 4em 8em;
+  padding:8em 8em 8em 8em;
   border-right: 1px white solid;
   background-image: url('../img/beerCloseUp.jpg');
   background-size: 100% 100%;
+  background-position: top center;
   background-repeat: no-repeat;
 }
 
@@ -352,12 +352,6 @@ ul.row.tabNav {
   background-color:black;
   color:white;
   margin-top:-2px;
-}
-
-.profileToursContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
 }
 
 .displayBrewTourNameBtn {
@@ -404,6 +398,7 @@ ul.row.tabNav {
 
 .profilePageRightSide {
   padding: 5em 3em 5em 3em;
+  width:100%;
 }
 
 .profilePageRightSide > div > ul {
