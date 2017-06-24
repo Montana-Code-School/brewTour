@@ -23,10 +23,10 @@ class SiteUse extends React.Component {
             <ul>
               <li>• A LIST OF BREWERIES AND A GOOGLE MAP WILL APPEAR</li>
               <li>• CLICK ON A BREWERY TO BRING UP THEIR WEB PAGE</li>
-              <li>• CLICK ON "BACK" TO RETURN TO BREW TOUR HOME PAGE</li>
+              <li>• CLICK ON BEERS YOU WOULD LIKE TO TRY</li>
+              <li>• CLICK ON "BREW TOUR LOGO" TO RETURN TO BREW TOUR HOME PAGE</li>
             </ul>
             <li>• IF INTERESTED, CLICK ON "ADD TO MY TOUR"</li>
-            <li>• CLICK ON BEERS YOU WOULD LIKE TO TRY</li>
             <li>• IF NOT INTERESTED, SIMPLY CLICK ANOTHER BREWERY</li>
             <li>• CLICK ON "MY TOUR" TO VIEW A LIST OF BREWERIES AND BEERS YOU WOULDD LIKE TO TRY</li>
             <li>• CLICK ON "TOUR DIARY"</li>

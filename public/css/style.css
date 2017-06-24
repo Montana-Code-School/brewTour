@@ -33,8 +33,9 @@ ul {
 }
 
 li {
-  font-family:Arvo;
+  font-family:Lato;
   font-size: 20px;
+  color: white;
   line-height: 160%;
 }
 
