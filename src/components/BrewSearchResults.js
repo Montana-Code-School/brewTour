@@ -43,7 +43,6 @@ render() {
         <td><button type='button' value={i} onClick={this.buttonClicked.bind(this)}
         className='btn listBtn'
         >ADD TO YOUR TOUR<span className='btnIcon'>></span></button></td>
-        <td>{i}</td>
         </tr>
       )}
     </tbody>

@@ -50,7 +50,6 @@ constructor(props) {
 
     var  markLoop = this.props.categories.map((brewery, i) => {
 
-
       return(
         <Marker
           key={brewery.breweryId}
@@ -58,6 +57,17 @@ constructor(props) {
           lng={brewery.longitude}
           draggable={false}
           clickable={true}
+          onClick={function(e){
+                    var infowindow = new window.google.maps.InfoWindow({
+                                        content: '<div class="iw-container">'
+                                        + '<div class="iw-title">' + brewery.brewery.name + '</div>'
+                                         + '<div class="iw-content">' + brewery.brewery.description
+                                         + '<img src=' + `${brewery.brewery.images.medium}` + ">" + '</div>'
+                                         + '</div>',
+                                        position: e.latLng
+                                    });
+                    infowindow.open(this.get('map'), this);
+              }}
          />
       );
     });
