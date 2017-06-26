@@ -1,4 +1,5 @@
 import React from 'react';
+import BeerAnimation from './beerAnimation';
 
 
 class DisplayBreweries extends React.Component {
@@ -22,7 +23,7 @@ render() {
   return(
 
     <div>
-      <img src='img/beerFillPlaceholder.png' />
+      <BeerAnimation />
       <button className="displayBrewTourNameBtn" onClick={this.handleClick.bind(this)}>
          {this.state.tourName}
       </button>

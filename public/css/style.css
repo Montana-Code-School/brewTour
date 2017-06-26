@@ -379,7 +379,7 @@ ul.row.tabNav {
 }
 
 .profileToursContainer > ul > div {
-  background-color:darkgray;
+  background-color:#87CEEB;
   padding: 2em;
   border-radius:.5em;
   display: flex;
