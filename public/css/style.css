@@ -387,14 +387,8 @@ ul.row.tabNav {
   justify-content: center;
   margin-right:1em;
   margin-bottom: 2em;
-  width: 30%;
 }
 
-.profileToursContainer > ul > div > img {
-  align-self: center;
-  margin-bottom: 1em;
-  height:100px;
-}
 
 .profilePageRightSide {
   padding: 5em 3em 5em 3em;
@@ -406,6 +400,14 @@ ul.row.tabNav {
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
+}
+@media screen and (max-width:1379px) and (min-width: 520px) {
+  .profilePageRightSide > div > ul {
+    display: flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
 }
 
 .profilePageRightSide h2 {
