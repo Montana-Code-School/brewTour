@@ -13,7 +13,7 @@ class BeerAnimation extends React.Component {
   	return Math.floor(Math.random() * (1 + max - min) + min);
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     const bubs = new TimelineMax();
     const beerPour = new TimelineMax();
     beerPour.to('#liquid', 4, {height:"100%", delay: 1})

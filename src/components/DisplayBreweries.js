@@ -22,11 +22,11 @@ handleClick() {
 render() {
   return(
 
-    <div>
+    <div onClick={this.handleClick.bind(this)}>
       <BeerAnimation />
-      <button className="displayBrewTourNameBtn" onClick={this.handleClick.bind(this)}>
+      <span className="displayBrewTourNameBtn">
          {this.state.tourName}
-      </button>
+      </span>
       <ul>
         {this.state.clicked && this.state.tour.map(brewObj => {
           return(<li>{brewObj.brewery.name}</li>)

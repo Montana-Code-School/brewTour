@@ -360,6 +360,7 @@ ul.row.tabNav {
   border-left:0px;
   border-right:0px;
   border-bottom:1px solid black;
+  text-align: center;
   color:black;
   background: rgba(0, 0, 0, 0);
   font-size:large;
