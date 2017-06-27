@@ -17,24 +17,13 @@
   border-top: 0;
   border-radius: 0 0 40px 40px;
   height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   bottom: 0;
   width: 100%;
 }
-
-/*#beaker:before,
-#beaker:after {
-  border: 10px solid white;
-  border-bottom: 0;
-  border-radius: 30px 30px 0 0;
-  height: 30px;
-  position: absolute;
-  top: -40px;
-  width: 30px;
-}
-
-#beaker:before { left: -50px; }
-#beaker:after { right: -50px; }*/
 
 #liquid {
   background-color: #edaf32;
@@ -66,7 +55,8 @@
 
 .beer-foam {
   width:100%;
-  bottom: 0;
+  bottom: -5%;
+
 }
 
 .foam-1, .foam-2, .foam-3, .foam-4,

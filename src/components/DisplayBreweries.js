@@ -40,7 +40,6 @@ calcPercent() {
 }
 
 render() {
-  console.log(this.state.percentage);
   return(
 
     <div>
