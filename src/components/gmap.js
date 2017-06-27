@@ -12,6 +12,9 @@ constructor(props) {
     latAverage: [],
     lngAverage: []
   };
+
+  this.mapTourBtnClicked = this.mapTourBtnClicked.bind(this);
+
 }
   onMapCreated(map) {
     map.setOptions({
@@ -45,6 +48,16 @@ constructor(props) {
     console.log('onClick');
   }
 
+  mapTourBtnClicked(event) {
+    console.log("hello");
+    this.props.tourArr.push(this.props.categories[event.target.value]);
+
+    this.props.tourArr.map((brewery, i) =>
+      this.props.tourArr[i].brewery.name
+    )
+  }
+
+
   render() {
 
 
@@ -60,10 +73,11 @@ constructor(props) {
           onClick={function(e){
                     var infowindow = new window.google.maps.InfoWindow({
                                         content: '<div class="iw-container">'
-                                        + '<div class="iw-title">' + brewery.brewery.name + '</div>'
-                                         + '<div class="iw-content">' + brewery.brewery.description
-                                         + '<img src=' + `${brewery.brewery.images.medium}` + ">" + '</div>'
-                                         + '</div>',
+                                        + '<div class="iw-title">' + '<img src=' + `${brewery.brewery.images.icon}` + ">"
+                                        + '<h3>' + brewery.brewery.name + '</h3>' + '</div>'
+                                        + '<div class="iw-content">' + '<button onClick=' + "this.mapTourBtnClicked()" + 'value=' + `${i}` + '>' + 'ADD TO TOUR' + '</button>' + '<p>' + brewery.streetAddress + '<br />'
+                                        + brewery.locality + ', ' + brewery.region + '<br />' + '<a target="_blank" href=' + `${brewery.website}` + '>'
+                                        + 'BREWERY WEBSITE' + '</a>' + '</p>' + '</div>',
                                         position: e.latLng
                                     });
                     infowindow.open(this.get('map'), this);

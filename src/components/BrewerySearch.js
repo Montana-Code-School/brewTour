@@ -69,7 +69,7 @@ render() {
         <div className='mainContainer'>
           <div className='row mainRow'>
             <div className='col-lg-6'>
-              <Gmap categories={this.state.categories} lat={this.state.latArr} lng={this.state.lngArr} />
+              <Gmap categories={this.state.categories} lat={this.state.latArr} lng={this.state.lngArr} tourArr={this.state.tourArr} />
             </div>
             <div className='col-lg-5 col-lg-offset-1 breweryListUI'>
               <form onSubmit={this.handleSubmit} className='row'>
