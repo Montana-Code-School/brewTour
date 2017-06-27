@@ -14,6 +14,8 @@ class BeerAnimation extends React.Component {
   }
 
   componentDidUpdate() {
+    const percent = this.props.percentage + '%';
+    console.log(percent);
     const bubs = new TimelineMax();
     const beerPour = new TimelineMax();
     beerPour.to('#liquid', 4, {height:"100%", delay: 1})

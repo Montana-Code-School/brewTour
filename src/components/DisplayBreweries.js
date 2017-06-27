@@ -15,18 +15,25 @@ constructor(props) {
     clicked: false
   };
 }
+componentDidMount() {
+  this.calcPercent();
+}
 
 handleClick() {
-  let change = !this.state.clicked
-
+  let change = !this.state.clicked;
   this.setState({clicked: change});
-  db.ref().child('users').child(auth.currentUser.uid).child('tours').child(this.state.tourName).on('value', snap =>{
+  this.calcPercent();
+}
+
+calcPercent() {
+  db.ref('/users/' + window.localStorage['brew-login-mrwickpk']+'/tours/'+ this.state.tourName).on('value', snap => {
     let count = 0;
     snap.val().map(brewObj => {
       if (brewObj.visited) count += 1;
     });
-    let percentage = (count/ this.state.tour.length) * 100;
+    let percentage = (count/ snap.val().length) * 100;
     this.setState({
+      tour: snap.val(),
       percentage: percentage
     });
   });
@@ -38,14 +45,14 @@ render() {
 
     <div>
       <div onClick={this.handleClick.bind(this)}>
-        <BeerAnimation />
+        <BeerAnimation percentage={this.state.percentage}/>
         <span className="displayBrewTourNameBtn">
           {this.state.tourName}
          </span>
       </div>
       <ul>
         {this.state.clicked && this.state.tour.map((brewObj, index) => {
-
+          console.log(brewObj);
           return(
             <div>
               <li>{brewObj.brewery.name}</li>
