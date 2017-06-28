@@ -15,10 +15,11 @@ class BrewSearchResults extends React.Component {
 
   buttonClicked(event) {
     let brewObj = this.props.categories[event.target.value];
-        brewObj.visited = false;
-        console.log(brewObj);
-        this.props.tourArr.push(brewObj);
-        
+
+    brewObj.visited = false;
+    console.log(brewObj);
+    this.props.tourArr.push(brewObj);
+
     this.props.tourArr.map((brewery, i) =>
       this.props.tourArr[i].brewery.name
     )

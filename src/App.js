@@ -28,6 +28,7 @@ class App extends Component {
     return {uid: this.state.uid};
   }
 
+
   componentDidMount() {
     this.unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
