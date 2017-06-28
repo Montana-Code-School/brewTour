@@ -18,7 +18,7 @@ class BrewerySearch extends React.Component {
     this.state = {
       categories: [],
       tourArr: [],
-      region: "",
+      locality: "",
       latArr: [],
       lngArr: [],
       show: '',
@@ -32,15 +32,15 @@ class BrewerySearch extends React.Component {
   }
 
   handleChange(event) {
-    const region=event.target.value;
+    const locality=event.target.value;
     this.setState({
-      region: region,
+      locality: locality,
     });
   }
 
 
 handleSubmit(event) {
-  axios.get('http://localhost:9078/api/proxy/breweries/' + this.state.region)
+  axios.get('http://localhost:9078/api/proxy/breweries/' + this.state.locality)
     .then(res => {
       const categories = res.data.data;
       const latArr = [];
@@ -73,12 +73,12 @@ render() {
             </div>
             <div className='col-lg-5 col-lg-offset-1 breweryListUI'>
               <form onSubmit={this.handleSubmit} className='row'>
-                <input className="stateInput col-lg-10" type="text" placeholder="Search By State..." value={this.state.region} onChange={this.handleChange.bind(this)}/>
+                <input className="stateInput col-lg-10" type="text" placeholder="Search By State..." value={this.state.locality} onChange={this.handleChange.bind(this)}/>
                 <input className="stateInputBtn fa fa-search col-lg-2" type="submit" value="&#xf002;" onChange={this.handleSubmit.bind(this)}/>
               </form>
                 <Tabs>
                   <TabList className="row tabNav">
-                    <Tab className="col-md-4">{this.state.region + " "} BREWERIES</Tab>
+                    <Tab className="col-md-4">{this.state.locality + " "} BREWERIES</Tab>
                     <Tab className="col-md-4">MY TOUR</Tab>
                   </TabList>
                   <TabPanel>

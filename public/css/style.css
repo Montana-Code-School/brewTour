@@ -74,6 +74,18 @@ th {
   background-position: top right;
 }
 
+.beerIntroContainer {
+  border-bottom:orange 3px solid;
+  padding:8.2em 3em 8.2em 3em;
+  color:black;
+  line-height:200% !important;
+  text-transform:uppercase;
+  background-image:url('../img/beerCaps.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .introContainer .row {
   margin: 4em 0em !important;
 }
@@ -421,7 +433,6 @@ ul.row.tabNav {
   background-color: blue;
   color: white;
 }
-
 .gm-style-iw {
 	width: 350px !important;
 	top: 15px !important;

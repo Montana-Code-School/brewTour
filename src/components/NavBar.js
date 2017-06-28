@@ -18,8 +18,16 @@ render() {
               <li>SEARCH BREWERIES</li>
             </Link>
             <li>|</li>
+            <Link to="/BeerSearch">
+              <li>SEARCH BEERS</li>
+            </Link>
+            <li>|</li>
             <Link to="/SiteUse">
               <li>SITE USE</li>
+            </Link>
+            <li>|</li>
+            <Link to="/FeaturedBrewery">
+              <li>FEATURED BREWERY</li>
             </Link>
             <li>|</li>
             <Link to="/profile">
