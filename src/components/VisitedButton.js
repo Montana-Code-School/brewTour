@@ -28,7 +28,7 @@ componentDidMount() {
 
   render() {
     return(
-      <div>
+      <div className="VisitedButton">
         <input onChange={this.handleChange.bind(this)} type='checkbox'value={this.state.visited} checked={this.state.visited}/>
       </div>
     );

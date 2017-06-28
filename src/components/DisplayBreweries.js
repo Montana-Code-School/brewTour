@@ -51,9 +51,8 @@ render() {
       </div>
       <ul>
         {this.state.clicked && this.state.tour.map((brewObj, index) => {
-          console.log(brewObj);
           return(
-            <div>
+            <div className="BreweryListItem">
               <li>{brewObj.brewery.name}</li>
               <VisitedButton visited={brewObj.visited} tourName={this.state.tourName} tour={this.state.tour} brewIndex={index}/>
             </div>

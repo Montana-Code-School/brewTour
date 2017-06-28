@@ -156,12 +156,6 @@ form.row {
   background-color:orange;
 }
 
-.breweryListBtn {
-  background-color:orange !important;
-  padding:1em 2em !important;
-  font-size:1.3em !important;
-  width:420px;
-}
 
 .footerContainer {
   background-color:#0766ff;
@@ -393,8 +387,10 @@ ul.row.tabNav {
   display: flex;
   flex-direction: column;
 }
-
-
+.BreweryListItem {
+  display: flex;
+  justify-content: space-between;
+}
 .profilePageRightSide {
   padding: 5em 3em 5em 3em;
   width:100%;
