@@ -1,6 +1,8 @@
 import React from "react";
 import {db, auth} from "../config/configFirebase";
 import Modal from 'react-bootstrap-modal';
+import {Expo,TweenMax, Power2, TimelineMax, Linear} from 'gsap';
+import GSAP from 'react-gsap-enhancer';
 
 
 class CreateTour extends React.Component {
@@ -39,7 +41,7 @@ class CreateTour extends React.Component {
   }
 
 
-  removeItemClicked(idx) {
+  removeItemClicked(idx, event) {
     this.state.tourArr.splice(idx, 1);
     this.setState({
       itemToRemove: ''
@@ -80,7 +82,7 @@ render() {
           {this.state.tourArr.map((spot, i) =>
             <tr>
               <td>{spot.brewery.name}</td>
-              <td><button type='button' onClick={this.removeItemClicked.bind(this, i)} className='btn listBtn'>X</button></td>
+              <td><button type='button' onClick={this.removeItemClicked.bind(this, i)} className='btn rmBtn listBtn'>X</button></td>
             </tr>
           )}
         </tbody>

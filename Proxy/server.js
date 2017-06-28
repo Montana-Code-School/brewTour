@@ -19,6 +19,11 @@ router.route('/proxy/breweries/:locality')
   req.pipe(request(url)).pipe(res);
 });
 
+router.route('/proxy/breweries/region/:region').get(function (req, res) {
+  let url = 'http://api.brewerydb.com/v2/locations?key=5d2a32cf36729810ffae82e7193a9769&region=' + req.params.region;
+  req.pipe(request(url)).pipe(res);
+});
+
 router.route('/proxy/beers/:beerName')
 
 .get(function (req, res) {

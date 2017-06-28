@@ -44,7 +44,7 @@ render() {
 
     <div>
       <div onClick={this.handleClick.bind(this)}>
-        <BeerAnimation percentage={this.state.percentage}/>
+        <BeerAnimation check={this.state.tourName} percentage={this.state.percentage}/>
         <span className="displayBrewTourNameBtn">
           {this.state.tourName}
          </span>

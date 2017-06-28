@@ -10,7 +10,7 @@ constructor(props) {
 
   this.state = {
     latAverage: [],
-    lngAverage: []
+    lngAverage: [],
   };
 
   this.mapTourBtnClicked = this.mapTourBtnClicked.bind(this);
