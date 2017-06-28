@@ -1,7 +1,7 @@
 import React from "react";
 import {db, auth} from "../config/configFirebase";
 import Modal from 'react-bootstrap-modal';
-
+import {Link, Redirect} from 'react-router-dom';
 
 class CreateTour extends React.Component {
   constructor(props) {
@@ -34,8 +34,8 @@ class CreateTour extends React.Component {
     event.preventDefault();
     db.ref().child('users').child(auth.currentUser.uid).child('tours').update({
       [tour]: this.state.tourArr
-    });
-    this.openModal();
+    }, this.openModal());
+
   }
 
 

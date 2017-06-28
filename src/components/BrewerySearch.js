@@ -73,7 +73,7 @@ render() {
             </div>
             <div className='col-lg-5 col-lg-offset-1 breweryListUI'>
               <form onSubmit={this.handleSubmit} className='row'>
-                <input className="stateInput col-lg-10" type="text" placeholder="Search By State..." value={this.state.locality} onChange={this.handleChange.bind(this)}/>
+                <input className="stateInput col-lg-10" type="text" placeholder="Search By City..." value={this.state.locality} onChange={this.handleChange.bind(this)}/>
                 <input className="stateInputBtn fa fa-search col-lg-2" type="submit" value="&#xf002;" onChange={this.handleSubmit.bind(this)}/>
               </form>
                 <Tabs>
