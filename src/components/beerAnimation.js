@@ -23,7 +23,7 @@ class BeerAnimation extends React.Component {
     beerPour.to('#liquid', 4, {height:percent, delay: 1})
             .to('.beer-foam', 4,{width: width, height:percent},'-=4')
             .to('.foam', 1.5,{scale:scale},'-=2');
-            
+
     for (let i = 1; i < 11; i++) {
       let speed = (3 - this.randomNumber(0, 2));
       let randX = this.randomNumber(0, 220);

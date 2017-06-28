@@ -40,7 +40,6 @@ calcPercent() {
 }
 
 render() {
-  console.log(this.state.percentage);
   return(
 
     <div>
@@ -52,7 +51,6 @@ render() {
       </div>
       <ul>
         {this.state.clicked && this.state.tour.map((brewObj, index) => {
-          console.log(brewObj);
           return(
             <div className="BreweryListItem">
               <li>{brewObj.brewery.name}</li>

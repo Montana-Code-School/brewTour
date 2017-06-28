@@ -403,8 +403,10 @@ ul.row.tabNav {
   display: flex;
   flex-direction: column;
 }
-
-
+.BreweryListItem {
+  display: flex;
+  justify-content: space-between;
+}
 .profilePageRightSide {
   padding: 5em 3em 5em 3em;
   width:100%;
