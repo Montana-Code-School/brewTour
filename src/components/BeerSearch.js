@@ -6,6 +6,7 @@ import Intro from './Intro';
 import Footer from './Footer';
 import {auth, db} from '../config/configFirebase';
 import BeerIntro from './BeerIntro';
+import Modal from 'react-bootstrap-modal';
 
 class BeerSearch extends React.Component {
   constructor(props) {
@@ -33,8 +34,9 @@ class BeerSearch extends React.Component {
 saveBeer(event) {
   console.info(this.state.beerReturn);
   db.ref().child("users").child(auth.currentUser.uid).child("beers").update({
-    [this.state.beerReturn.name]: {Rating: ""}
+    [this.state.beerReturn.name]: {Rating: 0}
   })
+  this.openModal();
 }
 
 handleSubmit(event) {
@@ -44,21 +46,54 @@ handleSubmit(event) {
       const breweryReturn = res.data.data[0].breweries[0];
       const beerLabelImg = res.data.data[0].labels;
 
-      console.log(beerReturn);
       this.setState({
         beerReturn:beerReturn,
         breweryReturn: breweryReturn,
         beerLabelImg: beerLabelImg
       });
 
+    })
+    .catch(error => {
+      alert("Sorry That Beer Is Not In Our Database");
     });
 
     event.preventDefault();
 }
 
+closeModal = () => this.setState({ open: false })
+openModal = () => this.setState({ open: true })
+saveAndClose = () => {
+  this.setState({
+    open: false
+  })
+  window.location.reload();
+}
+
+
 render() {
   return (
     <div>
+      <div>
+        <Modal
+          show={this.state.open}
+          onHide={this.closeModal}
+          aria-labelledby="ModalHeader"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title className='testHeader' id='ModalHeader'>BEER SAVED!</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <img src={this.state.beerLabelImg.large} />
+            <p>Add More Beers Or View Your Profile By Navigating To Profile</p>
+          </Modal.Body>
+          <Modal.Footer className='text-center'>
+            <button className='btn btn-primary' onClick={this.saveAndClose}>
+              OK
+            </button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+
         <NavBar />
         <BeerIntro />
         <div className='mainContainer'>
@@ -68,10 +103,10 @@ render() {
                 <input className="stateInput col-lg-10" type="text" placeholder="Search By Beer..." value={this.state.beername} onChange={this.handleChange.bind(this)}/>
                 <input className="stateInputBtn fa fa-search col-lg-2" type="submit" value="&#xf002;" onChange={this.handleSubmit.bind(this)}/>
               </form>
-              <img src={this.state.beerLabelImg.medium} />
             </div>
             <div className='col-lg-6'>
             <table className='table table-striped featuredBeerTbl'>
+              <tbody>
               <tr>
                 <th colSpan="2">{this.state.beerReturn.name}</th>
               </tr>
@@ -91,10 +126,13 @@ render() {
                 <td>BREWERY</td>
                 <td>{this.state.breweryReturn.name}</td>
               </tr>
+              </tbody>
             </table>
-            <button type='button' onClick={this.saveBeer.bind(this)}
-            className='btn'
-            >VIEW BEER LABEL<span className='btnIcon'>></span></button>
+            <div className="saveBeersBtnContainer text-center">
+              <button type='button' onClick={this.saveBeer.bind(this)}
+              className='btn btn-primary'
+              >SAVE THIS BEER<span className='btnIcon'>></span></button>
+            </div>
             </div>
           </div>
         </div>

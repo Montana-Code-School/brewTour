@@ -56,6 +56,9 @@ handleSubmit(event) {
         lngArr: lngArr
       });
 
+    })
+    .catch(error => {
+      alert("Sorry That City Is Not In Our Database");
     });
 
     event.preventDefault();

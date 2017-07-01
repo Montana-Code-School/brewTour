@@ -86,6 +86,18 @@ th {
   background-position: center center;
 }
 
+.featuredIntroContainer {
+  border-bottom:orange 3px solid;
+  padding:8.2em 3em 8.2em 3em;
+  color:black;
+  line-height:200% !important;
+  text-transform:uppercase;
+  background-image:url('../img/featuredIntroBkgd.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .introContainer .row {
   margin: 4em 0em !important;
 }
@@ -332,10 +344,11 @@ ul.row.tabNav {
   display: flex;
   flex-direction: column;
   text-align:center;
-  padding:8em 8em 8em 8em;
+  padding:8em 4em 8em 4em;
+  width:30%;
   border-right: 1px white solid;
   background-image: url('../img/beerCloseUp.jpg');
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
 }
@@ -490,7 +503,7 @@ ul.row.tabNav {
 }
 
 .iw-content p {
-  padding: 8px 10px 8px 0px;
+  padding: 8px 10px 8px 10px;
   color: white;
   text-align: right;
   line-height: 1.5em;
@@ -499,4 +512,73 @@ ul.row.tabNav {
 .iw-content a {
   font-family: Arvo;
   font-weight: 400;
+}
+
+.testHeader {
+  background-color:black;
+  color:white;
+  padding: 1em;
+  text-align: center;
+  font-family: Arvo;
+}
+
+.modal-header {
+  background-color:black;
+}
+
+.modal-dialog {
+  border: 1px solid white;
+  text-align: center;
+}
+
+.beerProfileTable {
+  max-height:350px;
+  overflow:auto;
+  margin-top:2em;
+  border:1px solid black;
+  text-align:left;
+}
+
+.beerProfileTable th {
+  padding:.5em;
+}
+
+.ratedCell {
+  cursor: pointer;
+}
+
+.is-active {
+  color: yellow;
+}
+
+.featuredPageContainer h1, .featuredPageContainer h2, .featuredPageContainer h3, .featuredPageContainer p {
+  color:white;
+  margin-top:-5px !important;
+}
+
+.featuredBeerContainer {
+  padding: 2em 0em 2em 4em;
+}
+
+.featuredBreweryContainer {
+  padding: 2em 0em 2em 4em;
+  margin: 3em 0em 3em 0em;
+}
+
+.featuredBeerTbl {
+  width: 570px;
+  margin-left:1em;
+}
+
+button a, button a:hover {
+  text-decoration:none;
+  color:white !important;
+}
+
+.btn-primary {
+  border-radius:.25em;
+}
+
+.iw-content > p > a {
+  float:left;
 }

@@ -12,9 +12,6 @@ constructor(props) {
     latAverage: [],
     lngAverage: []
   };
-
-  this.mapTourBtnClicked = this.mapTourBtnClicked.bind(this);
-
 }
   onMapCreated(map) {
     map.setOptions({
@@ -23,7 +20,7 @@ constructor(props) {
   }
   getAverage(arr) {
     if (arr.length > 0) {
-      const equation = arr.sort((a,b) => a-b).slice(1, arr.length).reduce((a, b) => a + b) / (arr.length - 2);
+      const equation = arr.sort((a,b) => a-b).slice(1, arr.length).reduce((a, b) => a + b) / (arr.length-1);
       console.log(equation);
     return (equation);
     }
@@ -48,20 +45,16 @@ constructor(props) {
     console.log('onClick');
   }
 
-  mapTourBtnClicked(event) {
-    console.log("hello");
-    this.props.tourArr.push(this.props.categories[event.target.value]);
-
-    this.props.tourArr.map((brewery, i) =>
-      this.props.tourArr[i].brewery.name
-    )
-  }
-
 
   render() {
 
 
     var  markLoop = this.props.categories.map((brewery, i) => {
+      if (brewery.website === undefined) {
+        brewery.website = "# onClick = 'return false'";
+      } else {
+        brewery.website = brewery.website;
+      }
 
       return(
         <Marker
@@ -75,9 +68,9 @@ constructor(props) {
                                         content: '<div class="iw-container">'
                                         + '<div class="iw-title">' + '<img src=' + `${brewery.brewery.images.icon}` + ">"
                                         + '<h3>' + brewery.brewery.name + '</h3>' + '</div>'
-                                        + '<div class="iw-content">' + '<button onClick=' + "this.mapTourBtnClicked()" + 'value=' + `${i}` + '>' + 'ADD TO TOUR' + '</button>' + '<p>' + brewery.streetAddress + '<br />'
-                                        + brewery.locality + ', ' + brewery.region + '<br />' + '<a target="_blank" href=' + `${brewery.website}` + '>'
-                                        + 'BREWERY WEBSITE' + '</a>' + '</p>' + '</div>',
+                                        + '<div class="iw-content">' + '<p>' + '<a target="_blank" href=' + `${brewery.website}` + '>'
+                                        + 'BREWERY WEBSITE' + '</a>' +  brewery.streetAddress + '<br />'
+                                        + brewery.locality + ', ' + brewery.region + '<br />' + '</p>' + '</div>',
                                         position: e.latLng
                                     });
                     infowindow.open(this.get('map'), this);
@@ -92,7 +85,7 @@ constructor(props) {
         height={'600px'}
         lat={(this.getAverage(this.props.lat) === 0) ? 41.8679 : this.getAverage(this.props.lat)}
         lng={(this.getAverage(this.props.lng) === 0) ? -124.1490 : this.getAverage(this.props.lng)}
-        zoom={5}
+        zoom={8}
         loadingMessage={'Be happy'}
         params={params}
         onMapCreated={this.onMapCreated}>

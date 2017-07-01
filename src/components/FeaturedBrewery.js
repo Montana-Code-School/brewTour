@@ -2,7 +2,9 @@ import React from 'react';
 import reactDOM from 'react-dom';
 import axios from 'axios';
 import NavBar from './NavBar';
+import Footer from './Footer';
 import FeaturedMap from './FeaturedMap';
+import FeaturedIntro from './FeaturedIntro';
 
 class FeaturedBrewery extends React.Component {
   constructor(props) {
@@ -50,52 +52,66 @@ class FeaturedBrewery extends React.Component {
     return (
       <div>
         <NavBar />
-        <h2>Featured Brewery</h2>
-        <h3>{this.state.featuredLocation.name}</h3>
-        <img src={this.state.locationImages.squareMedium} />
-        <p>{this.state.featuredLocation.description}</p>
-        {console.log(this.state.mapLocation.latitude)}
-        <FeaturedMap
-          featuredLocation={this.state.featuredLocation}
-          locationImages={this.state.locationImages}
-          mapLocation={this.state.mapLocation}
-          />
-        <h2>Featured Beer</h2>
-        <h3>{this.state.featuredBeer.name}</h3>
-        <img src={this.state.featuredBeerLabel.medium} />
-        <table className='table table-striped featuredBeerTbl'>
-          <tr>
-            <th colSpan="2">{this.state.featuredBeer.name}</th>
-          </tr>
-          <tr>
-            <td>DESCRIPTION</td>
-            <td>{this.state.featuredBeer.description}</td>
-          </tr>
-          <tr>
-            <td>ALCOHOL BY VOLUME</td>
-            <td>{this.state.featuredBeer.abv}</td>
-          </tr>
-          <tr>
-            <td>INTERNATIONAL BITTERNESS UNITS</td>
-            <td>{this.state.featuredBeer.ibu}</td>
-          </tr>
-          <tr>
-            <td>AVAILABILITY</td>
-            <td>{this.state.featuredBeerAvail.description}</td>
-          </tr>
-          <tr>
-            <td>STYLE</td>
-            <td>{this.state.featuredBeerStyle.description}</td>
-          </tr>
-          <tr>
-            <td>BREWERY</td>
-            <td>{this.state.featuredBeerBrewery.name}</td>
-          </tr>
-          <tr>
-            <td>BREWERY DESCRIPTION</td>
-            <td>{this.state.featuredBeerBrewery.description}</td>
-          </tr>
-        </table>
+        <FeaturedIntro />
+        <div className="featuredPageContainer">
+          <div className="featuredBreweryContainer row">
+            <img className="col-lg-3" src={this.state.locationImages.squareMedium} />
+            <div className="col-lg-3">
+              <h2>{this.state.featuredLocation.name}</h2>
+              <p>{this.state.featuredLocation.description}</p>
+              <button className="btn btn-primary"><a href={this.state.featuredLocation.website} target="_blank">VIEW WEBSITE</a><span className='btnIcon'>></span></button>
+            </div>
+            <div className="col-lg-6">
+              <FeaturedMap
+                featuredLocation={this.state.featuredLocation}
+                locationImages={this.state.locationImages}
+                mapLocation={this.state.mapLocation}
+                />
+            </div>
+          </div>
+          <hr />
+
+          <div className="featuredBeerContainer row">
+            <img className="col-lg-3" src={this.state.featuredBeerLabel.medium} />
+            <div className="col-lg-3">
+              <h2>{this.state.featuredBeer.name}</h2>
+              <p>{this.state.featuredBeer.description}</p>
+              <button className="btn-primary"><a href={this.state.featuredBeerBrewery.website} target="_blank">VIEW BREWERY WEBSITE</a><span className='btnIcon'>></span></button>
+            </div>
+            <table className='table table-striped featuredBeerTbl col-lg-6'>
+              <tbody>
+                <tr>
+                  <th colSpan="2">{this.state.featuredBeer.name}</th>
+                </tr>
+                <tr>
+                  <td>ALCOHOL BY VOLUME</td>
+                  <td>{this.state.featuredBeer.abv}</td>
+                </tr>
+                <tr>
+                  <td>INTERNATIONAL BITTERNESS UNITS</td>
+                  <td>{this.state.featuredBeer.ibu}</td>
+                </tr>
+                <tr>
+                  <td>AVAILABILITY</td>
+                  <td>{this.state.featuredBeerAvail.description}</td>
+                </tr>
+                <tr>
+                  <td>STYLE</td>
+                  <td>{this.state.featuredBeerStyle.description}</td>
+                </tr>
+                <tr>
+                  <td>BREWERY</td>
+                  <td>{this.state.featuredBeerBrewery.name}</td>
+                </tr>
+                <tr>
+                  <td>BREWERY DESCRIPTION</td>
+                  <td>{this.state.featuredBeerBrewery.description}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        <Footer />
       </div>
     );
   }
