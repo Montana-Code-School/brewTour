@@ -64,9 +64,15 @@ constructor(props) {
           draggable={false}
           clickable={true}
           onClick={function(e){
+                    var brewIcon = "";
+                    if (brewery.brewery.images === undefined || brewery.brewery.images === null) {
+                      brewIcon = "img/btPlaceholder.jpg";
+                    } else {
+                      brewIcon = brewery.brewery.images.icon;
+                    }
                     var infowindow = new window.google.maps.InfoWindow({
                                         content: '<div class="iw-container">'
-                                        + '<div class="iw-title">' + '<img src=' + `${brewery.brewery.images.icon}` + ">"
+                                        + '<div class="iw-title">' + '<img src=' + brewIcon + ">"
                                         + '<h3>' + brewery.brewery.name + '</h3>' + '</div>'
                                         + '<div class="iw-content">' + '<p>' + '<a target="_blank" href=' + `${brewery.website}` + '>'
                                         + 'BREWERY WEBSITE' + '</a>' +  brewery.streetAddress + '<br />'

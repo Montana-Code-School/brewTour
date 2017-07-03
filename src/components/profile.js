@@ -25,7 +25,7 @@ class Profile extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     db.ref('/users/' + window.localStorage['brew-login-mrwickpk']).on('value', function(snapshot) {
       window.localStorage.setItem('userName', snapshot.val().displayName);
       window.localStorage.setItem('profileImg', snapshot.val().photoURL);
@@ -36,8 +36,6 @@ class Profile extends React.Component {
     const tourNames = Object.keys(mainObj);
     const beersObj = JSON.parse(window.localStorage.getItem('myBeers'));
     const beerNames = Object.keys(beersObj);
-    console.log(beersObj);
-    console.log(mainObj);
 
     this.setState({
       userName: window.localStorage.userName,
@@ -47,16 +45,16 @@ class Profile extends React.Component {
       tourNames: tourNames,
       beerNames: beerNames
     })
-}
+  }
 
-handleRate(event, nameOfBeer) {
-  console.log(nameOfBeer.rating);
-  console.log(event);
-  const beerRating = nameOfBeer.rating;
-  db.ref().child('users').child(auth.currentUser.uid).child('beers').child(event).update({
-    Rating: {beerRating}
-  }, () => console.log('successful save'));
-}
+  handleRate(event, nameOfBeer) {
+    console.log(nameOfBeer.rating);
+    console.log(event);
+    const beerRating = nameOfBeer.rating;
+    db.ref().child('users').child(auth.currentUser.uid).child('beers').child(event).update({
+      Rating: {beerRating}
+    }, () => console.log('successful save'));
+  }
 
   render() {
     return(
