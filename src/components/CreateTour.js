@@ -80,7 +80,7 @@ render() {
           {this.state.tourArr.map((spot, i) =>
             <tr>
               <td>{spot.brewery.name}</td>
-              <td><button type='button' onClick={this.removeItemClicked.bind(this, i)} className='btn listBtn'>X</button></td>
+              <td><button type='button' onClick={this.removeItemClicked.bind(this, i)} className='btn rmBtn listBtn'>X</button></td>
             </tr>
           )}
         </tbody>

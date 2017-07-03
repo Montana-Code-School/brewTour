@@ -20,8 +20,7 @@ constructor(props) {
   }
   getAverage(arr) {
     if (arr.length > 0) {
-      const equation = arr.sort((a,b) => a-b).slice(1, arr.length).reduce((a, b) => a + b) / (arr.length-1);
-      console.log(equation);
+      const equation = arr.sort((a,b) => b - a).slice(2, arr.length - 3).reduce((a, b) => a + b) / (arr.length-5);
     return (equation);
     }
     else {
@@ -32,19 +31,6 @@ constructor(props) {
       lngAverage: []
     });
   }
-
-  onDragEnd(e) {
-    console.log('onDragEnd', e);
-  }
-
-  onCloseClick() {
-    console.log('onCloseClick');
-  }
-
-  onClick() {
-    console.log('onClick');
-  }
-
 
   render() {
 
@@ -91,7 +77,7 @@ constructor(props) {
         height={'600px'}
         lat={(this.getAverage(this.props.lat) === 0) ? 41.8679 : this.getAverage(this.props.lat)}
         lng={(this.getAverage(this.props.lng) === 0) ? -124.1490 : this.getAverage(this.props.lng)}
-        zoom={8}
+        zoom={(this.props.isState) ? 5 : 10}
         loadingMessage={'Be happy'}
         params={params}
         onMapCreated={this.onMapCreated}>

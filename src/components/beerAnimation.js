@@ -7,6 +7,13 @@ import styles from './beerAnimation.css';
 class BeerAnimation extends React.Component {
   constructor(props){
     super(props);
+
+    let checkSalt = this.props.check.replace(/[\W]/g, '').toLowerCase();
+
+    console.log(checkSalt);
+    this.state = {
+      checkSalt: checkSalt
+    };
   }
 
   randomNumber(min, max){
@@ -17,12 +24,13 @@ class BeerAnimation extends React.Component {
     const percent = this.props.percentage + '%';
     const width = (this.props.percentage * 1.1) + '%';
     const scale = (this.props.percentage * 0.005) + 1;
+    const check = this.state.checkSalt;
     console.log(percent);
     const bubs = new TimelineMax();
     const beerPour = new TimelineMax();
-    beerPour.to('#liquid', 4, {height:percent, delay: 1})
-            .to('.beer-foam', 4,{width: width, height:percent},'-=4')
-            .to('.foam', 1.5,{scale:scale},'-=2');
+    beerPour.to('.liquid'+check, 4, {height:percent, delay: 1})
+            .to('.tru'+check, 4,{width: width, height:percent},'-=4')
+            .to('.foam'+check, 1.5,{scale:scale},'-=2');
 
     for (let i = 1; i < 11; i++) {
       let speed = (3 - this.randomNumber(0, 2));
@@ -38,18 +46,18 @@ class BeerAnimation extends React.Component {
     return(
   <div id="container">
        <div id="beaker">
-            <div className="beer-foam">
-              <div className="foam foam-1"></div>
-              <div className="foam foam-2"></div>
-              <div className="foam foam-3"></div>
-              <div className="foam foam-4"></div>
-              <div className="foam foam-5"></div>
-              <div className="foam foam-6"></div>
-              <div className="foam foam-7"></div>
+            <div className={"beer-foam tru"+ this.state.checkSalt}>
+              <div className={"foam-1 foam" + this.state.checkSalt}></div>
+              <div className={"foam-2 foam" + this.state.checkSalt}></div>
+              <div className={"foam-3 foam" + this.state.checkSalt}></div>
+              <div className={"foam-4 foam" + this.state.checkSalt}></div>
+              <div className={"foam-5 foam" + this.state.checkSalt}></div>
+              <div className={"foam-6 foam" + this.state.checkSalt}></div>
+              <div className={"foam-7 foam" + this.state.checkSalt}></div>
           </div>
 
 
-        <div id="liquid">
+        <div id="liquid" className={"liquid"+this.state.checkSalt}>
           <div className="bubble bubble1"></div>
           <div className="bubble bubble2"></div>
           <div className="bubble bubble3"></div>
