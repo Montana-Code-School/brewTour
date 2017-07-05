@@ -24,7 +24,7 @@ class FeaturedBrewery extends React.Component {
 
 
   componentDidMount() {
-    axios.get('http://localhost:9078/api/proxy/featuredlocation')
+    axios.get('https://us-central1-brewtour-66745.cloudfunctions.net/api/proxy/featuredlocation')
     .then(res => {
       const featuredLocation = res.data.data.brewery;
       const locationImages = res.data.data.brewery.images;

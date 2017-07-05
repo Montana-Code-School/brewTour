@@ -86,6 +86,30 @@ th {
   background-position: center center;
 }
 
+.featuredIntroContainer {
+  border-bottom:orange 3px solid;
+  padding:8.2em 3em 8.2em 3em;
+  color:black;
+  line-height:200% !important;
+  text-transform:uppercase;
+  background-image:url('../img/featuredIntroBkgd.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.siteUseIntroContainer {
+  border-bottom:orange 3px solid;
+  padding:16em 3em 16em 3em;
+  color:black;
+  line-height:200% !important;
+  text-transform:uppercase;
+  background-image:url('../img/siteUseIntro.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .introContainer .row {
   margin: 4em 0em !important;
 }
@@ -136,10 +160,10 @@ input.stateInputBtn.fa.fa-search {
   font-size:large !important;
 }
 
-/*form.row {
+form.row {
   margin: 0em 0em 2.3em 0em !important;
   width:100% !important;
-}*/
+}
 
 .breweryListContainer {
   height:350px;
@@ -163,7 +187,14 @@ input.stateInputBtn.fa.fa-search {
   border-bottom-left-radius: 0px !important;
   border-bottom: 1px solid #0766ff;
 }
-
+.rmBtn{
+  background-color: #EE2928;
+  color: white;
+}
+.rmBtn:hover {
+  color: white;
+  background-color: #EE2928;
+}
 .listBtn a:target {
   background-color:orange;
 }
@@ -179,6 +210,10 @@ input.stateInputBtn.fa.fa-search {
   color:white;
 }
 
+.TwoSearchBars {
+  display: flex;
+}
+
 .footerImage {
   width: 13% !important;
   height: 13% !important;
@@ -190,8 +225,50 @@ input.stateInputBtn.fa.fa-search {
 }
 
 .siteuse {
-  color: lightblue !important;
+  color: white;
   font-family: Lato;
+  width: 85%;
+  padding: 5em;
+  display: block;
+  margin: 0 auto;
+  background-color: black;
+}
+
+.siteusePageBkgd {
+  background-image: url('../img/beerCloseUp.jpg');
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.siteuse h1 {
+  color: white;
+}
+
+.siteuse h2 {
+  margin-top: -10px;
+  border: 1px solid #0766ff;
+  padding: .7em;
+  text-align: center;
+  font-family: Arvo;
+}
+
+.siteuse a:hover {
+  color: white !important;
+  text-decoration: none;
+}
+
+.siteuse p {
+  font-size:large;
+  line-height: 1.6em;
+}
+
+.siteuse .row {
+  margin-top: 5em;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 2em;
 }
 
 .footerNav li {
@@ -251,6 +328,9 @@ ul.row.tabNav {
   height:100%;
   background-color:lightyellow;
 }
+.TwoSearchBars {
+  display: flex;
+}
 
 .stateInputBtn {
   height: 100%;
@@ -258,13 +338,8 @@ ul.row.tabNav {
   border-top-right-radius: .3em;
   border-bottom-right-radius: .3em;
   margin-left: -3px;
-  background-color:#0766ff;
+  background-color:#0878E5;
   color:white;
-  width: 50%;
-}
-
-.TwoSearchBars {
-  display: flex !important;
 }
 
 .generalInputs {
@@ -337,10 +412,11 @@ ul.row.tabNav {
   display: flex;
   flex-direction: column;
   text-align:center;
-  padding:8em 8em 8em 8em;
+  padding:8em 4em 8em 4em;
+  width:30%;
   border-right: 1px white solid;
   background-image: url('../img/beerCloseUp.jpg');
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
 }
@@ -442,7 +518,7 @@ ul.row.tabNav {
 }
 
 .blueButton {
-  background-color: blue;
+  background-color: #0878E5;
   color: white;
 }
 .gm-style-iw {
@@ -495,7 +571,7 @@ ul.row.tabNav {
 }
 
 .iw-content p {
-  padding: 8px 10px 8px 0px;
+  padding: 8px 10px 8px 10px;
   color: white;
   text-align: right;
   line-height: 1.5em;
@@ -504,4 +580,73 @@ ul.row.tabNav {
 .iw-content a {
   font-family: Arvo;
   font-weight: 400;
+}
+
+.testHeader {
+  background-color:black;
+  color:white;
+  padding: 1em;
+  text-align: center;
+  font-family: Arvo;
+}
+
+.modal-header {
+  background-color:black;
+}
+
+.modal-dialog {
+  border: 1px solid white;
+  text-align: center;
+}
+
+.beerProfileTable {
+  max-height:350px;
+  overflow:auto;
+  margin-top:2em;
+  border:1px solid black;
+  text-align:left;
+}
+
+.beerProfileTable th {
+  padding:.5em;
+}
+
+.ratedCell {
+  cursor: pointer;
+}
+
+.is-active {
+  color: darkred;
+}
+
+.featuredPageContainer h1, .featuredPageContainer h2, .featuredPageContainer h3, .featuredPageContainer p {
+  color:white;
+  margin-top:-5px !important;
+}
+
+.featuredBeerContainer {
+  padding: 2em 0em 2em 4em;
+}
+
+.featuredBreweryContainer {
+  padding: 2em 0em 2em 4em;
+  margin: 3em 0em 3em 0em;
+}
+
+.featuredBeerTbl {
+  width: 570px;
+  margin-left:1em;
+}
+
+button a, button a:hover {
+  text-decoration:none;
+  color:white !important;
+}
+
+.btn-primary {
+  border-radius:.25em;
+}
+
+.iw-content > p > a {
+  float:left;
 }

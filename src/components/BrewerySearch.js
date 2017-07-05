@@ -46,7 +46,7 @@ class BrewerySearch extends React.Component {
 
 
 handleCitySubmit(event) {
-  axios.get('http://localhost:9078/api/proxy/breweries/' + this.state.locality)
+  axios.get('https://us-central1-brewtour-66745.cloudfunctions.net/api/proxy/breweries/' + this.state.locality)
     .then(res => {
       console.log(res);
       const categories = res.data.data;
@@ -69,7 +69,7 @@ handleCitySubmit(event) {
 }
 
 handleRegionSubmit(event) {
-  axios.get('http://localhost:9078/api/proxy/breweries/region/' + this.state.region)
+  axios.get('https://us-central1-brewtour-66745.cloudfunctions.net/api/proxy/breweries/region/' + this.state.region)
     .then(res => {
       const categories = res.data.data;
       const latArr = [];

@@ -40,7 +40,7 @@ saveBeer(event) {
 }
 
 handleSubmit(event) {
-  axios.get('http://localhost:9078/api/proxy/beers/' + this.state.beername)
+  axios.get('https://us-central1-brewtour-66745.cloudfunctions.net/api/proxy/beers/' + this.state.beername)
     .then(res => {
       const beerReturn = res.data.data[0];
       const breweryReturn = res.data.data[0].breweries[0];
