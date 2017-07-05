@@ -32,19 +32,27 @@ class Profile extends React.Component {
       window.localStorage.setItem('myTours', JSON.stringify(snapshot.val().tours));
       window.localStorage.setItem('myBeers', JSON.stringify(snapshot.val().beers));
     });
-    const mainObj = JSON.parse(window.localStorage.getItem('myTours'));
-    const tourNames = Object.keys(mainObj);
-    const beersObj = JSON.parse(window.localStorage.getItem('myBeers'));
-    const beerNames = Object.keys(beersObj);
 
+    if (window.localStorage.getItem('myTours') !== "undefined") {
+      const mainObj = JSON.parse(window.localStorage.getItem('myTours')) || undefined;
+      const tourNames = Object.keys(mainObj) || undefined;
+      this.setState({
+        tourNames: tourNames,
+        mainObj: mainObj
+      });
+  }
+  if (window.localStorage.getItem('myBeers') !== "undefined") {
+    const beersObj = JSON.parse(window.localStorage.getItem('myBeers')) || undefined;
+    const beerNames = Object.keys(beersObj) || undefined;
+    this.setState({
+      beerNames: beerNames,
+      beersObj: beersObj
+    })
+}
     this.setState({
       userName: window.localStorage.userName,
-      profileImg: window.localStorage.profileImg,
-      mainObj: mainObj,
-      beersObj: beersObj,
-      tourNames: tourNames,
-      beerNames: beerNames
-    })
+      profileImg: window.localStorage.profileImg
+    });
   }
 
   handleRate(event, nameOfBeer) {
@@ -57,6 +65,7 @@ class Profile extends React.Component {
   }
 
   render() {
+    const tours = this.state.tourNames;
     return(
       <div>
         {console.log(this.state.beersObj[0])}
@@ -86,14 +95,14 @@ class Profile extends React.Component {
               <Logout />
             </div>
             <div className="profilePageRightSide">
-            <h2>My Tours</h2>
+            {
+              (tours.length > 1) ? <h2>MY TOURS</h2> : <p></p>
+            }
               <div className="profileToursContainer">
                 <ul>
-                  {this.state.tourNames.map(tourName => {
-                    return(
-                    <DisplayBreweries breweryArr={this.state.mainObj[tourName]} tourName={tourName}/>
-                    );
-                  })}
+                  {
+                    (tours.length > 1 ) ? tours.map(tourName => <DisplayBreweries breweryArr={this.state.mainObj[tourName]} tourName={tourName}/>) : <h2>GO MAKE SOME TOURS MATE!</h2>
+                  }
                 </ul>
               </div>
             </div>
