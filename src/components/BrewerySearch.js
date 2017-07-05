@@ -8,6 +8,8 @@ import Footer from './Footer';
 import {auth, db} from '../config/configFirebase';
 import CreateTour from './CreateTour';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import SimpleModal from './SimpleModal';
+import BrewSearchResults from './BrewSearchResults';
 
 class BrewerySearch extends React.Component {
   constructor(props) {
@@ -16,28 +18,37 @@ class BrewerySearch extends React.Component {
     this.state = {
       categories: [],
       tourArr: [],
+      locality: "",
       region: "",
       latArr: [],
-      lngArr: []
+      lngArr: [],
+      show: '',
+      btnColor: 'lightgray',
+      close: '',
+      isState: false
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
-  handleChange(event) {
-    const region=event.target.value;
+  handleCityChange(event) {
+    const locality=event.target.value;
+    this.setState({
+      locality: locality
+    });
+  }
+
+  handleRegionChange(event) {
+    const region = event.target.value;
     this.setState({
       region: region
     });
   }
 
 
-
-handleSubmit(event) {
-  axios.get('http://localhost:9078/api/proxy/breweries/' + this.state.region)
+handleCitySubmit(event) {
+  axios.get('https://us-central1-brewtour-66745.cloudfunctions.net/api/proxy/breweries/' + this.state.locality)
     .then(res => {
+      console.log(res);
       const categories = res.data.data;
       const latArr = [];
       const lngArr = [];
@@ -57,12 +68,27 @@ handleSubmit(event) {
     event.preventDefault();
 }
 
-buttonClicked(event) {
-  this.state.tourArr.push(this.state.categories[event.target.value]);
+handleRegionSubmit(event) {
+  axios.get('https://us-central1-brewtour-66745.cloudfunctions.net/api/proxy/breweries/region/' + this.state.region)
+    .then(res => {
+      const categories = res.data.data;
+      const latArr = [];
+      const lngArr = [];
+      categories.map(category => {
+        latArr.push(category.latitude);
+        lngArr.push(category.longitude);
+      });
 
-  this.state.tourBrewNames = this.state.tourArr.map((brewery, i) =>
-    this.state.tourArr[i].brewery.name
-  )
+      this.setState({
+        categories:categories,
+        latArr: latArr,
+        lngArr: lngArr,
+        isState: true
+      });
+
+    });
+
+    event.preventDefault();
 }
 
 render() {
@@ -73,38 +99,26 @@ render() {
         <div className='mainContainer'>
           <div className='row mainRow'>
             <div className='col-lg-6'>
-              <Gmap categories={this.state.categories} lat={this.state.latArr} lng={this.state.lngArr} />
+              <Gmap isState={this.state.isState} categories={this.state.categories} lat={this.state.latArr} lng={this.state.lngArr} tourArr={this.state.tourArr} />
             </div>
             <div className='col-lg-5 col-lg-offset-1 breweryListUI'>
-              <form onSubmit={this.handleSubmit} className='row'>
-                <input className="stateInput col-lg-10" type="text" placeholder="Search By State..." value={this.state.region} onChange={this.handleChange.bind(this)}/>
-                <input className="stateInputBtn fa fa-search col-lg-2" type="submit" value="&#xf002;" onChange={this.handleSubmit.bind(this)}/>
+            <div className="TwoSearchBars">
+              <form onSubmit={this.handleCitySubmit.bind(this)} className='row'>
+                <input className="stateInput col-lg-10" type="text" placeholder="Search By City..." value={this.state.locality} onChange={this.handleCityChange.bind(this)}/>
+                <input className="stateInputBtn fa fa-search col-lg-2" type="submit" value="&#xf002;"/>
               </form>
+              <form onSubmit={this.handleRegionSubmit.bind(this)} className='row'>
+                <input className="stateInput col-lg-10" type="text" placeholder="Search By State..." value={this.state.region} onChange={this.handleRegionChange.bind(this)}/>
+                <input className="stateInputBtn fa fa-search col-lg-2" type="submit" value="&#xf002;" />
+              </form>
+              </div>
                 <Tabs>
-                  <TabList>
-                    <Tab>{this.state.region + " "} Breweries</Tab>
-                    <Tab>MY CURRENT TOUR</Tab>
+                  <TabList className="row tabNav">
+                    <Tab className="col-md-4">{this.state.locality + " "} BREWERIES</Tab>
+                    <Tab className="col-md-4">MY TOUR</Tab>
                   </TabList>
-
                   <TabPanel>
-                    <div className='breweryListContainer'>
-                      <table className='table table-striped'>
-                        <thead>
-                          <tr>
-                          <th>BREWERY NAME</th>
-                          <th>SAVE IT!</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {this.state.categories.map((category, i) =>
-                            <tr>
-                            <td key={i}>{category.brewery.name}</td>
-                            <td><button type='button' value={i} onClick={this.buttonClicked.bind(this)} className='btn listBtn'>ADD TO YOUR TOUR<span className='btnIcon'>></span></button></td>
-                            </tr>
-                          )}
-                        </tbody>
-                      </table>
-                    </div>
+                    <BrewSearchResults categories={this.state.categories} tourArr={this.state.tourArr}/>
                   </TabPanel>
                   <TabPanel>
                     <CreateTour tourArr={this.state.tourArr}/>
@@ -112,8 +126,8 @@ render() {
                 </Tabs>
               </div>
             </div>
+            <SimpleModal />
           </div>
-
         <Footer />
       </div>
     );

@@ -10,7 +10,7 @@ constructor(props) {
 
   this.state = {
     latAverage: [],
-    lngAverage: []
+    lngAverage: [],
   };
 }
   onMapCreated(map) {
@@ -20,8 +20,7 @@ constructor(props) {
   }
   getAverage(arr) {
     if (arr.length > 0) {
-      const equation = arr.sort((a,b) => a-b).slice(1, arr.length).reduce((a, b) => a + b) / (arr.length - 2);
-      console.log(equation);
+      const equation = arr.sort((a,b) => b - a).slice(2, arr.length - 3).reduce((a, b) => a + b) / (arr.length-5);
     return (equation);
     }
     else {
@@ -33,23 +32,15 @@ constructor(props) {
     });
   }
 
-  onDragEnd(e) {
-    console.log('onDragEnd', e);
-  }
-
-  onCloseClick() {
-    console.log('onCloseClick');
-  }
-
-  onClick() {
-    console.log('onClick');
-  }
-
   render() {
 
 
     var  markLoop = this.props.categories.map((brewery, i) => {
-
+      if (brewery.website === undefined) {
+        brewery.website = "# onClick = 'return false'";
+      } else {
+        brewery.website = brewery.website;
+      }
 
       return(
         <Marker
@@ -58,6 +49,24 @@ constructor(props) {
           lng={brewery.longitude}
           draggable={false}
           clickable={true}
+          onClick={function(e){
+                    var brewIcon = "";
+                    if (brewery.brewery.images === undefined || brewery.brewery.images === null) {
+                      brewIcon = "img/btPlaceholder.jpg";
+                    } else {
+                      brewIcon = brewery.brewery.images.icon;
+                    }
+                    var infowindow = new window.google.maps.InfoWindow({
+                                        content: '<div class="iw-container">'
+                                        + '<div class="iw-title">' + '<img src=' + brewIcon + ">"
+                                        + '<h3>' + brewery.brewery.name + '</h3>' + '</div>'
+                                        + '<div class="iw-content">' + '<p>' + '<a target="_blank" href=' + `${brewery.website}` + '>'
+                                        + 'BREWERY WEBSITE' + '</a>' +  brewery.streetAddress + '<br />'
+                                        + brewery.locality + ', ' + brewery.region + '<br />' + '</p>' + '</div>',
+                                        position: e.latLng
+                                    });
+                    infowindow.open(this.get('map'), this);
+              }}
          />
       );
     });
@@ -68,7 +77,7 @@ constructor(props) {
         height={'600px'}
         lat={(this.getAverage(this.props.lat) === 0) ? 41.8679 : this.getAverage(this.props.lat)}
         lng={(this.getAverage(this.props.lng) === 0) ? -124.1490 : this.getAverage(this.props.lng)}
-        zoom={5}
+        zoom={(this.props.isState) ? 5 : 10}
         loadingMessage={'Be happy'}
         params={params}
         onMapCreated={this.onMapCreated}>
