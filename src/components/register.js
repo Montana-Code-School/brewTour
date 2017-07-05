@@ -20,7 +20,6 @@ class Register extends React.Component {
     };
 
   this.storageRef = storagePic.ref('/user-images');
-  this.handleSubmit = this.handleSubmit.bind(this);
 }
 
   handleChange = (evt) => {
@@ -31,34 +30,34 @@ class Register extends React.Component {
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-
-
     this.setState({showErrors:true});
+
     if (this.validateForm()) {
 
-      auth.createUserWithEmailAndPassword(this.state.email, this.state.password).then(user => {
+      auth.createUserWithEmailAndPassword(this.state.email, this.state.password).then(user => {  //Sets up Firebase Authentication & saves to database
         db.ref().child('users').child(user.uid).set({
           email: user.email,
           displayName: this.state.displayName,
           profileImg: this.state.profileImg
-        });
+        })
 
-        const uploadTask = this.storageRef.child(this.state.profileImg.name).put(this.state.profileImg);
-        uploadTask.then((snapshot) => {
+
+        this.storageRef.child(this.state.profileImg.name).put(this.state.profileImg).then((snapshot) => { //Adds profile picture
           db.ref().child('users').child(auth.currentUser.uid).child('photoURL').set(snapshot.downloadURL);
-        });
+        }).catch(err => alert(err.message));
 
         user.updateProfile({
           displayName: this.state.displayName,
           profileImg: this.state.profileImg
           // profilePic: this.state.profilePic
         });
-        this.setState({loggedIn: true});
-      }).catch(error => console.error(error));
-    }
-  }
 
-  validateForm = () => {
+  }).catch(err => alert(err.message));
+        this.setState({loggedIn: true});
+      }
+    }
+
+  validateForm() {
     return(
       this.state.email.length > 0 &&
       this.state.displayName.length > 0 &&

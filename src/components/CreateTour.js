@@ -1,9 +1,6 @@
 import React from "react";
 import {db, auth} from "../config/configFirebase";
 import Modal from 'react-bootstrap-modal';
-import {Expo,TweenMax, Power2, TimelineMax, Linear} from 'gsap';
-import GSAP from 'react-gsap-enhancer';
-
 
 class CreateTour extends React.Component {
   constructor(props) {
@@ -36,8 +33,8 @@ class CreateTour extends React.Component {
     event.preventDefault();
     db.ref().child('users').child(auth.currentUser.uid).child('tours').update({
       [tour]: this.state.tourArr
-    });
-    this.openModal();
+    }, this.openModal());
+
   }
 
 

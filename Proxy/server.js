@@ -1,7 +1,6 @@
-// Proxy/server.js
-
 var express = require('express');
 var request = require('request');
+
 var app = express();
 var port = 9078;
 var router = express.Router();

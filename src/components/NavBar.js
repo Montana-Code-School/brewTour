@@ -27,7 +27,7 @@ render() {
             </Link>
             <li>|</li>
             <Link to="/FeaturedBrewery">
-              <li>FEATURED BREWERY</li>
+              <li>FEATURED</li>
             </Link>
             <li>|</li>
             <Link to="/profile">

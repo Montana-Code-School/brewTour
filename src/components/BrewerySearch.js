@@ -24,7 +24,8 @@ class BrewerySearch extends React.Component {
       lngArr: [],
       show: '',
       btnColor: 'lightgray',
-      close: ''
+      close: '',
+      isState: false
     };
 
   }
@@ -73,7 +74,6 @@ handleRegionSubmit(event) {
       const categories = res.data.data;
       const latArr = [];
       const lngArr = [];
-    
       categories.map(category => {
         latArr.push(category.latitude);
         lngArr.push(category.longitude);
@@ -82,7 +82,8 @@ handleRegionSubmit(event) {
       this.setState({
         categories:categories,
         latArr: latArr,
-        lngArr: lngArr
+        lngArr: lngArr,
+        isState: true
       });
 
     });
@@ -98,7 +99,7 @@ render() {
         <div className='mainContainer'>
           <div className='row mainRow'>
             <div className='col-lg-6'>
-              <Gmap categories={this.state.categories} lat={this.state.latArr} lng={this.state.lngArr} tourArr={this.state.tourArr} />
+              <Gmap isState={this.state.isState} categories={this.state.categories} lat={this.state.latArr} lng={this.state.lngArr} tourArr={this.state.tourArr} />
             </div>
             <div className='col-lg-5 col-lg-offset-1 breweryListUI'>
             <div className="TwoSearchBars">

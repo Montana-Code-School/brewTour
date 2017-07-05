@@ -57,7 +57,7 @@ constructor(props) {
         height={'600px'}
         lat={this.props.mapLocation.latitude}
         lng={this.props.mapLocation.longitude}
-        zoom={10}
+        zoom={8}
         loadingMessage={'Be happy'}
         params={params}
         onMapCreated={this.onMapCreated}>

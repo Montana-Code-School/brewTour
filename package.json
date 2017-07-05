@@ -18,6 +18,7 @@
     "react-dom": "^15.4.1",
     "react-gmaps": "^1.6.0",
     "react-gsap-enhancer": "^0.3.0",
+    "react-rater": "^0.4.3",
     "react-router-dom": "4.1.0",
     "react-tabs": "^1.1.0",
     "simple-react-modal": "^0.5.1"
