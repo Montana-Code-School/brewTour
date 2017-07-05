@@ -7,3 +7,10 @@
   <li>node Proxy/server.js || nodemon Proxy/server.js</li>
   <li></li>
 </ul>
+
+<h1>Extra info</h1>
+<ul>
+<li>Bootstraped with create-react-app</li>
+<li>Using firebase auth and DB</li>
+<li>Brewery/beer Data from BreweryDB api</li>
+</ul>
