@@ -74,7 +74,6 @@ handleRegionSubmit(event) {
       const categories = res.data.data;
       const latArr = [];
       const lngArr = [];
-
       categories.map(category => {
         latArr.push(category.latitude);
         lngArr.push(category.longitude);

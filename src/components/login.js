@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import {Expo,TweenMax, Power2, TimelineMax, Elastic} from 'gsap';
 import GSAP from 'react-gsap-enhancer';
 
-
 class Login extends React.Component {
   static propTypes = {
     location: PropTypes.object

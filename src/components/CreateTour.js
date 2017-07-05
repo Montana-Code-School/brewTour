@@ -1,7 +1,6 @@
 import React from "react";
 import {db, auth} from "../config/configFirebase";
 import Modal from 'react-bootstrap-modal';
-import {Link, Redirect} from 'react-router-dom';
 
 class CreateTour extends React.Component {
   constructor(props) {
@@ -39,7 +38,7 @@ class CreateTour extends React.Component {
   }
 
 
-  removeItemClicked(idx) {
+  removeItemClicked(idx, event) {
     this.state.tourArr.splice(idx, 1);
     this.setState({
       itemToRemove: ''

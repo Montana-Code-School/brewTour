@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+h1, button {
+  font-family:Arvo !important;
+  font-size: 3.2em;
+}
+
+.testHeader {
+  color:white;
+}
+
+.modal {
+  display:block;
+}
+
+body {
+  width:100%;
+  background-color:black;
+  font-family:Lato;
+  line-height:130% !important;
+}
+
+#root {
+  width:100%;
+  background-color:black;
+  font-family:Lato;
+  line-height:130% !important;
+}
+
+
+h2, h3 {
+  font-family:Lato;
+  line-height:130% !important;
+}
+
+ul {
+  list-style:none;
+}
+
+.table {
+  background-color:lightgray;
+}
+
+th {
+  background-color:orange;
+}
+
+.navContainer {
+  background-color:white;
+  padding:1.75em 2.5em;
+  text-align:right;
+  font-family:Arvo;
+}
+
+.navContainer ul li {
+  display:inline !important;
+  padding-right:1.2em;
+  font-size:1.2em;
+}
+
+.navContainer ul {
+  margin-top:2.5em;
+}
+
+.introContainer {
+  border-bottom:orange 3px solid;
+  padding:2.2em 0em 2.2em 2.2em;
+  color:white;
+  line-height:200% !important;
+  text-transform:uppercase;
+  background-image:url('../img/introBkgdFinal.jpg');
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.beerIntroContainer {
+  border-bottom:orange 3px solid;
+  padding:8.2em 3em 8.2em 3em;
+  color:black;
+  line-height:200% !important;
+  text-transform:uppercase;
+  background-image:url('../img/beerCaps.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.introContainer .row {
+  margin: 4em 0em !important;
+}
+
+.btn-primary {
+  padding:1em 2em !important;
+  margin-top:2em;
+  font-size:1.3em !important;
+}
+
+.btnIcon {
+  padding-left:1.5em;
+}
+
+.mainContainer {
+  border-bottom:orange 3px solid;
+  padding:2.2em 2.2em 2.2em 4em;
+}
+
+.mainContainer .mainRow {
+  margin: 4em 0em !important;
+}
+
+.mainContainer form {
+  height: 55px;
+  margin-bottom:3.5em;
+}
+
+.stateInput {
+  width: 210px;
+  padding: .8em;
+  border-radius: .3em;
+  font-size: large;
+  height:100%;
+}
+
+.stateInputBtn {
+  height: 100%;
+  padding: .8em;
+  border-top-right-radius: .3em;
+  border-bottom-right-radius: .3em;
+  margin-left: -3px;
+  background-color:#0766ff;
+  color:white;
+}
+
+input.stateInputBtn.fa.fa-search {
+  font-size:large !important;
+}
+
+/*form.row {
+  margin: 0em 0em 2.3em 0em !important;
+  width:100% !important;
+}*/
+
+.breweryListContainer {
+  height:350px;
+  overflow:auto;
+  color:black;
+  line-height:2.0em;
+  border-radius:0.3em;
+  margin-bottom:3.5em;
+}
+
+.whiteRow {
+  background-color:white !important;
+}
+
+.brewerListContainer .row{
+  border-bottom:1px solid white !important;
+}
+
+.listBtn{
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom: 1px solid #0766ff;
+}
+
+.listBtn a:target {
+  background-color:orange;
+}
+
+.BreweryListItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerContainer {
+  background-color:#0766ff;
+  padding: 1.2em;
+  color:white;
+}
+
+.footerImage {
+  width: 13% !important;
+  height: 13% !important;
+}
+
+.footerNav {
+  list-style:none;
+  text-align:center;
+}
+
+.siteuse {
+  color: lightblue !important;
+  font-family: Lato;
+}
+
+.footerNav li {
+  display:inline !important;
+  padding-left:.5em;
+}
+
+.teamImages ul {
+  list-style:none;
+  text-align:right;
+}
+
+.teamImages ul li {
+display:inline !important;
+padding-right:1.2em;
+font-size:1.2em;
+}
+
+.btn-primary {
+  background-color:#0766ff !important;
+}
+
+.tabNav ul{
+  margin: 0em 0em -1em 0em;
+  padding: 0px !important;
+}
+
+.tabNav li {
+  background-color:lightgray;
+  padding:.7em .7em .7em 1em;
+  border-top-right-radius: 1.5em;
+  border-top-left-radius: 1.5em;
+  border-right: 1px solid black;
+  border-bottom: 3px solid black;
+  font-size:small;
+  cursor: pointer;
+}
+
+ul.row.tabNav {
+  padding: 0em;
+  margin:0em;
+}
+
+.firstTabTitle {
+  border-right: 1px solid black;
+}
+
+.createTourForm {
+  margin-top:2em;
+}
+
+.tourNameInput {
+  width: 420px;
+  padding: .8em;
+  border-radius: .3em;
+  font-size: large;
+  height:100%;
+  background-color:lightyellow;
+}
+
+.stateInputBtn {
+  height: 100%;
+  padding: .8em;
+  border-top-right-radius: .3em;
+  border-bottom-right-radius: .3em;
+  margin-left: -3px;
+  background-color:#0766ff;
+  color:white;
+  width: 50%;
+}
+
+.TwoSearchBars {
+  display: flex !important;
+}
+
+.generalInputs {
+  width: 420px;
+  padding: .8em;
+  border-radius: .3em;
+  font-size: large;
+  height:100%;
+}
+
+.loginBtns {
+  width: 420px;
+  display:block;
+  margin: 0 auto;
+}
+
+.loginBtns button {
+  width:210px !important;
+  font-size: small;
+  padding:1.2em;
+  margin-top:3.5em;
+}
+
+.loginContainer {
+  width:550px;
+  display:block;
+  margin: 0 auto;
+  background: rgba(180, 180, 180, .7);
+  padding: 4em .5em;
+  margin-top: 10em;
+  text-align: center;
+  border-radius:2em;
+}
+
+.registerContainer {
+  width:550px;
+  display:block;
+  margin: 0 auto;
+  background: rgba(180, 180, 180, .7);
+  padding: 4em .5em;
+  margin-top: 2em;
+  text-align: center;
+  border-radius:2em;
+}
+
+.loginContainer img, .registerContainer img {
+  display: block;
+  margin: 0 auto;
+}
+
+.loginContainer .generalInputs, .registerContainer .generalInputs {
+  display:block;
+  margin: 0 auto;
+}
+
+.loginContainer h4, .registerContainer h4 {
+  visibility: hidden;
+}
+
+.loginBkgd {
+  background-image: url('../img/beerCloseUp.jpg');
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.profilePicContainer {
+  display: flex;
+  flex-direction: column;
+  text-align:center;
+  padding:8em 8em 8em 8em;
+  border-right: 1px white solid;
+  background-image: url('../img/beerCloseUp.jpg');
+  background-size: 100% 100%;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+.profilePageContainer {
+  width:100%;
+  display:flex;
+  flex-direction:row;
+}
+
+.userProfileImg {
+  margin: 0 auto;
+  border-radius:50%;
+  border: 1px solid white;
+  width:150px;
+  height:150px;
+  box-shadow: 1px 3px 5px black;
+}
+
+.greeting {
+  font-family: Lato;
+  font-size:small;
+  padding:.5em;
+  background-color:black;
+  color:white;
+  margin-top:-2px;
+}
+
+.displayBrewTourNameBtn {
+  padding: .5em;
+  border-top:0px;
+  border-left:0px;
+  border-right:0px;
+  border-bottom:1px solid black;
+  text-align: center;
+  color:black;
+  background: rgba(0, 0, 0, 0);
+  font-size:large;
+  text-transform: uppercase;
+}
+
+.profileToursContainer > ul > div > ul {
+  color:black;
+  padding: 1em 0em 0em 0em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profileToursContainer > ul > div > ul > li {
+  margin-top:.5em;
+}
+
+.profileToursContainer > ul > div {
+  background-color:#87CEEB;
+  padding: 2em;
+  border-radius:.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right:1em;
+  margin-bottom: 2em;
+}
+.profileToursContainer > ul > div > div{
+  display: flex;
+  flex-direction: column;
+}
+.BreweryListItem {
+  display: flex;
+  justify-content: space-between;
+}
+.profilePageRightSide {
+  padding: 5em 3em 5em 3em;
+  width:100%;
+}
+
+.profilePageRightSide > div > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+@media screen and (max-width:1379px) and (min-width: 520px) {
+  .profilePageRightSide > div > ul {
+    display: flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+.profilePageRightSide h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: xx-large;
+  padding: .5em 0;
+  font-family: Arvo;
+  color: white;
+}
+
+.blueButton {
+  background-color: blue;
+  color: white;
+}
+.gm-style-iw {
+	width: 350px !important;
+	top: 15px !important;
+	background-color: #fff;
+	box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+}
+
+.iw-container {
+	margin-bottom: 10px;
+}
+
+.iw-img {
+  float: left;
+  width: 65px;
+}
+
+.iw-title {
+  width: 350px;
+  border-bottom: 1px solid #0766ff;
+  padding: 8px 3px 8px 8px;
+  background-color: lightgray;
+}
+
+.iw-title h3{
+	font-family: Arvo !important;
+	font-size: x-large !important;
+	font-weight: 400;
+	padding-left: 10px;
+	color: #0766ff;
+  float: right;
+  width: 275px;
+  margin: 0;
+  text-align: left;
+}
+
+.iw-content {
+  padding-top: 8px 3px 8px 3px;
+  background-color: black;
+}
+
+.iw-content button {
+  float: left;
+  width: 125px;
+  font-size: small !important;
+  padding: 8px;
+  margin: 8px 0px 0px 8px;
+  border-bottom: 1px solid #0766ff;
+}
+
+.iw-content p {
+  padding: 8px 10px 8px 0px;
+  color: white;
+  text-align: right;
+  line-height: 1.5em;
+}
+
+.iw-content a {
+  font-family: Arvo;
+  font-weight: 400;
+}

@@ -2,6 +2,7 @@
   "name": "firebase-react-starter",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://brewtour-66745.firebaseapp.com/",
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
@@ -30,5 +31,17 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": "build",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }
