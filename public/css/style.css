@@ -210,10 +210,6 @@ form.row {
   color:white;
 }
 
-.TwoSearchBars {
-  display: flex;
-}
-
 .footerImage {
   width: 13% !important;
   height: 13% !important;
@@ -330,6 +326,12 @@ ul.row.tabNav {
 }
 .TwoSearchBars {
   display: flex;
+}
+@media screen and (max-width:1379px) and (min-width: 520px) {
+  .TwoSearchBars {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .stateInputBtn {
