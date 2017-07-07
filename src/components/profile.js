@@ -72,7 +72,7 @@ class Profile extends React.Component {
         <NavBar />
           <div className="profilePageContainer">
             <div className="profilePicContainer">
-              <img className="userProfileImg" src={this.state.profileImg} />
+              <img alt="It's you!" className="userProfileImg" src={this.state.profileImg} />
               <h1><span className="greeting">Hello</span> {this.state.userName}</h1>
               <table className="table table-striped beerProfileTable">
                 <thead>

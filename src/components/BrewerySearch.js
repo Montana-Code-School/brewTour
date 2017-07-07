@@ -1,11 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Gmap from './gmap';
 import NavBar from './NavBar';
 import Intro from './Intro';
 import Footer from './Footer';
-import {auth, db} from '../config/configFirebase';
 import CreateTour from './CreateTour';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import SimpleModal from './SimpleModal';

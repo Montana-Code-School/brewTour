@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import NavBar from './NavBar';
-import Intro from './Intro';
 import Footer from './Footer';
 import {auth, db} from '../config/configFirebase';
 import BeerIntro from './BeerIntro';
@@ -54,7 +52,7 @@ handleSubmit(event) {
 
     })
     .catch(error => {
-      alert("Sorry That Beer Is Not In Our Database");
+      alert("Sorry That Beer Is Not In Our Database, Make sure to use proper spacing.");
     });
 
     event.preventDefault();
@@ -83,7 +81,7 @@ render() {
             <Modal.Title className='testHeader' id='ModalHeader'>BEER SAVED!</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <img src={this.state.beerLabelImg.large} />
+            <img alt="The beer Label" src={this.state.beerLabelImg.large} />
             <p>Add More Beers Or View Your Profile By Navigating To Profile</p>
           </Modal.Body>
           <Modal.Footer className='text-center'>
@@ -99,7 +97,7 @@ render() {
         <div className='mainContainer'>
           <div className='row mainRow'>
             <div className='col-lg-6'>
-              <form onSubmit={this.handleSubmit} className='row'>
+              <form onSubmit={this.handleSubmit} className='row' autocomplete="on">
                 <input className="stateInput col-lg-10" type="text" placeholder="Search By Beer..." value={this.state.beername} onChange={this.handleChange.bind(this)}/>
                 <input className="stateInputBtn fa fa-search col-lg-2" type="submit" value="&#xf002;" onChange={this.handleSubmit.bind(this)}/>
               </form>

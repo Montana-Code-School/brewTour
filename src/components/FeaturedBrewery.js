@@ -1,5 +1,4 @@
 import React from 'react';
-import reactDOM from 'react-dom';
 import axios from 'axios';
 import NavBar from './NavBar';
 import Footer from './Footer';
@@ -55,11 +54,11 @@ class FeaturedBrewery extends React.Component {
         <FeaturedIntro />
         <div className="featuredPageContainer">
           <div className="featuredBreweryContainer row">
-            <img className="col-lg-3" src={this.state.locationImages.squareMedium} />
+            <img alt={"The logo for " + this.state.featuredBeerBrewery} className="col-lg-3" src={this.state.locationImages.squareMedium} />
             <div className="col-lg-3">
               <h2>{this.state.featuredLocation.name}</h2>
               <p>{this.state.featuredLocation.description}</p>
-              <button className="btn btn-primary"><a href={this.state.featuredLocation.website} target="_blank">VIEW WEBSITE</a><span className='btnIcon'>></span></button>
+              <button className="btn btn-primary"><a href={this.state.featuredLocation.website} rel="noopener noreferrer" target="_blank">VIEW WEBSITE</a><span className='btnIcon'>></span></button>
             </div>
             <div className="col-lg-6">
               <FeaturedMap
@@ -72,11 +71,11 @@ class FeaturedBrewery extends React.Component {
           <hr />
 
           <div className="featuredBeerContainer row">
-            <img className="col-lg-3" src={this.state.featuredBeerLabel.medium} />
+            <img alt="The beer Label" className="col-lg-3" src={this.state.featuredBeerLabel.medium} />
             <div className="col-lg-3">
               <h2>{this.state.featuredBeer.name}</h2>
               <p>{this.state.featuredBeer.description}</p>
-              <button className="btn-primary"><a href={this.state.featuredBeerBrewery.website} target="_blank">VIEW BREWERY WEBSITE</a><span className='btnIcon'>></span></button>
+              <button className="btn-primary"><a href={this.state.featuredBeerBrewery.website} rel="noopener noreferrer" target="_blank">VIEW BREWERY WEBSITE</a><span className='btnIcon'>></span></button>
             </div>
             <table className='table table-striped featuredBeerTbl col-lg-6'>
               <tbody>

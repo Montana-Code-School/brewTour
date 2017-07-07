@@ -1,18 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
+import {Gmaps, Marker} from 'react-gmaps';
 
 const params = {v: '3.exp', key: 'AIzaSyDjzkSWSOc8KAZyrefu8JdI58dG14dpPhU'};
 
 class Gmap extends React.Component {
-constructor(props) {
-  super(props);
-
-  this.state = {
-    latAverage: [],
-    lngAverage: [],
-  };
-}
   onMapCreated(map) {
     map.setOptions({
       disableDefaultUI: true
@@ -26,10 +17,6 @@ constructor(props) {
     else {
       return 0;
     }
-    this.setState({
-      latAverage: [],
-      lngAverage: []
-    });
   }
 
   render() {
@@ -57,12 +44,12 @@ constructor(props) {
                       brewIcon = brewery.brewery.images.icon;
                     }
                     var infowindow = new window.google.maps.InfoWindow({
-                                        content: '<div class="iw-container">'
-                                        + '<div class="iw-title">' + '<img src=' + brewIcon + ">"
-                                        + '<h3>' + brewery.brewery.name + '</h3>' + '</div>'
-                                        + '<div class="iw-content">' + '<p>' + '<a target="_blank" href=' + `${brewery.website}` + '>'
-                                        + 'BREWERY WEBSITE' + '</a>' +  brewery.streetAddress + '<br />'
-                                        + brewery.locality + ', ' + brewery.region + '<br />' + '</p>' + '</div>',
+                                        content: '<div class="iw-container"><div class="iw-title"><img src='
+                                        + brewIcon + '><h3>'
+                                        + brewery.brewery.name + '</h3></div>'
+                                        + `<div class="iw-content"><p><a target="_blank" href=${brewery.website}`
+                                        + '>BREWERY WEBSITE</a>' +  brewery.streetAddress + '<br />'
+                                        + brewery.locality + ', ' + brewery.region + '<br /></p></div>',
                                         position: e.latLng
                                     });
                     infowindow.open(this.get('map'), this);
@@ -75,9 +62,9 @@ constructor(props) {
       <Gmaps
         width={'570px'}
         height={'600px'}
-        lat={(this.getAverage(this.props.lat) === 0) ? 41.8679 : this.getAverage(this.props.lat)}
-        lng={(this.getAverage(this.props.lng) === 0) ? -124.1490 : this.getAverage(this.props.lng)}
-        zoom={(this.props.isState) ? 5 : 10}
+        lat={(this.getAverage(this.props.lat) === 0) ? 38.8880 : this.getAverage(this.props.lat)}
+        lng={(this.getAverage(this.props.lng) === 0) ? -121.0162 : this.getAverage(this.props.lng)}
+        zoom={(this.props.isState) ? 5 : 14}
         loadingMessage={'Be happy'}
         params={params}
         onMapCreated={this.onMapCreated}>

@@ -13,7 +13,6 @@ class SimpleModal extends React.Component {
 
   render(){
     let closeModal = () => this.setState({ open: false })
-    let openModal = () => this.setState({ open: true })
     let saveAndClose = () => {
       this.setState({ open: false })
     }

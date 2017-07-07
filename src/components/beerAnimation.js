@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Expo,TweenMax, Power2, TimelineMax, Linear} from 'gsap';
+import {TimelineMax} from 'gsap';
 import GSAP from 'react-gsap-enhancer';
-import styles from './beerAnimation.css';
+require('./beerAnimation.css');
 
 class BeerAnimation extends React.Component {
   constructor(props){
@@ -35,8 +34,6 @@ class BeerAnimation extends React.Component {
     for (let i = 1; i < 11; i++) {
       let speed = (3 - this.randomNumber(0, 2));
       let randX = this.randomNumber(0, 220);
-      let randX2 = this.randomNumber(0, 220);
-      // bubs.set(".bubble"+ i, {x:randX, y:300}, 0);
       bubs.fromTo(".bubble"+ i, speed, {x:randX, y:300}, {y: -200, x:randX, repeatDelay:Math.random()*2, repeat:500}, Math.random() * 2);
     }
 

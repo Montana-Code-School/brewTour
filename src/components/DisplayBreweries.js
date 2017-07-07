@@ -1,7 +1,7 @@
 import React from 'react';
 import VisitedButton from './VisitedButton';
 import BeerAnimation from './beerAnimation';
-import {db, auth} from "../config/configFirebase";
+import {db} from "../config/configFirebase";
 
 
 class DisplayBreweries extends React.Component {

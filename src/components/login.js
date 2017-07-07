@@ -3,8 +3,8 @@ import {Link, Redirect} from 'react-router-dom';
 import {auth} from '../config/configFirebase';
 import TextField from './text-field';
 import PropTypes from 'prop-types';
-import {Expo,TweenMax, Power2, TimelineMax, Elastic} from 'gsap';
-import GSAP from 'react-gsap-enhancer';
+import {TimelineMax, Elastic} from 'gsap';
+
 
 class Login extends React.Component {
   static propTypes = {
@@ -56,7 +56,7 @@ class Login extends React.Component {
           <p>You must log in to view page at <code>{from.pathname}</code></p>
         )}
         <div className="loginContainer">
-        <img id="image" src='img/logo.png' />
+        <img alt="Our awesome logo" id="image" src='img/logo.png' />
 
           <form onSubmit={this.handleSubmit}>
             <TextField

@@ -1,7 +1,6 @@
 import React from 'react';
 import {db, auth} from "../config/configFirebase";
-import {Expo,TweenMax, Power2, TimelineLite, Elastic} from 'gsap';
-import GSAP from 'react-gsap-enhancer';
+
 
 
 
@@ -32,8 +31,8 @@ componentDidMount() {
   render() {
     return(
       <div className="VisitedButton">
-        <a href={"https://www.google.com/maps/dir/Current+Location/" + this.props.lat + ","+this.props.lon} target="_blank">
-          <img id='travelIcon' src="img/takeMeThereIconWhite.png" /></a>
+        <a href={"https://www.google.com/maps/dir/Current+Location/" + this.props.lat + ","+this.props.lon} rel="noopener noreferrer" target="_blank">
+          <img alt="Link to Map Directions of brewery" id='travelIcon' src="img/takeMeThereIconWhite.png" /></a>
           <input id="VisitedCheckBox"onChange={this.handleChange.bind(this)} type='checkbox'value={this.state.visited} checked={this.state.visited} href={"https://www.google.com/maps/dir/Current+Location/" + this.props.lat + ","+this.props.lon} target="_blank" />
       </div>
     );

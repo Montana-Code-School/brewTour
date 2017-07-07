@@ -1,7 +1,5 @@
 import React from 'react';
-import {Expo,TweenMax, Power2, TimelineLite, Elastic} from 'gsap';
-import GSAP from 'react-gsap-enhancer';
-
+import {TimelineLite} from 'gsap';
 
 class BrewSearchResults extends React.Component {
   constructor(props) {
@@ -11,7 +9,6 @@ class BrewSearchResults extends React.Component {
       tourBrewNames:[],
       active: null,
       flag: false
-
     }
   }
 
@@ -47,10 +44,10 @@ render() {
       <th>SAVE IT!</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody alt="list of breweries">
       {this.props.categories.map((category, i) =>
         <tr>
-        <td key={i}>{category.brewery.name}</td>
+        <td alt={category.brewery.name} key={i}>{category.brewery.name}</td>
         <td><button type='button' value={i} id={"btn" +i} onClick={this.buttonClicked.bind(this)}
         className='btn listBtn'
         >ADD TO YOUR TOUR<span className='btnIcon'>></span></button></td>

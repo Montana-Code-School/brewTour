@@ -25,7 +25,9 @@ class Register extends React.Component {
   handleChange = (evt) => {
     let file = evt.target.files[0];
     console.log(file);
-    this.state.profileImg = file;
+    this.setState({
+      profileImg: file
+    })
   }
 
   handleSubmit = (evt) => {
@@ -74,7 +76,7 @@ class Register extends React.Component {
           <Redirect to = '/brewerysearch'/>
         )}
         <div className="registerContainer">
-          <img src="img/logo.png" />
+          <img alt="Our awesome logo" src="img/logo.png" />
           <form onSubmit={this.handleSubmit.bind(this)}>
             <TextField
               className="generalInputs"

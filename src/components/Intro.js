@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 class Intro extends React.Component {

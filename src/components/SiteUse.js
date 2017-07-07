@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import SiteUseIntro from './SiteUseIntro';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class SiteUse extends React.Component {
   constructor(props) {

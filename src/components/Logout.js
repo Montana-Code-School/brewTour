@@ -1,6 +1,6 @@
 import React from 'react';
-import {auth, db} from '../config/configFirebase';
-import {Link, Redirect} from 'react-router-dom';
+import {auth} from '../config/configFirebase';
+import {Link} from 'react-router-dom';
 
 class Logout extends React.Component {
 
