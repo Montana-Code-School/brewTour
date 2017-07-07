@@ -101,7 +101,7 @@ class Profile extends React.Component {
               <div className="profileToursContainer">
                 <ul>
                   {
-                    (tours.length > 1 ) ? tours.map(tourName => <DisplayBreweries breweryArr={this.state.mainObj[tourName]} tourName={tourName}/>) : <h2>GO MAKE SOME TOURS MATE!</h2>
+                    (tours.length >= 1 ) ? tours.map(tourName => <DisplayBreweries breweryArr={this.state.mainObj[tourName]} tourName={tourName}/>) : <h2>GO MAKE SOME TOURS MATE!</h2>
                   }
                 </ul>
               </div>

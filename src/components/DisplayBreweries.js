@@ -54,7 +54,7 @@ render() {
           return(
             <div className="BreweryListItem">
               <li>{brewObj.brewery.name}</li>
-              <VisitedButton visited={brewObj.visited} tourName={this.state.tourName} tour={this.state.tour} brewIndex={index}/>
+              <VisitedButton visited={brewObj.visited} tourName={this.state.tourName} lat={brewObj.latitude} lon={brewObj.longitude} tour={this.state.tour} brewIndex={index}/>
             </div>
           )
         })}

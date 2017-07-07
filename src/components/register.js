@@ -39,7 +39,7 @@ class Register extends React.Component {
           email: user.email,
           displayName: this.state.displayName,
           profileImg: this.state.profileImg
-        })
+        }, alert('User Created!'))
 
 
         this.storageRef.child(this.state.profileImg.name).put(this.state.profileImg).then((snapshot) => { //Adds profile picture
