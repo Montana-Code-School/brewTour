@@ -61,6 +61,7 @@ th {
 
 .navContainer ul {
   margin-top:2.5em;
+  padding: 0px;
 }
 
 .introContainer {
@@ -139,7 +140,7 @@ th {
 }
 
 .stateInput {
-  width: 210px;
+  width: 80%;
   padding: .8em;
   border-radius: .3em;
   font-size: large;
@@ -331,6 +332,7 @@ ul.row.tabNav {
   .TwoSearchBars {
     display: flex;
     flex-direction: column;
+    margin-top: 2em;
   }
 }
 
@@ -453,6 +455,7 @@ ul.row.tabNav {
   border-left:0px;
   border-right:0px;
   border-bottom:1px solid black;
+  cursor: pointer;
   text-align: center;
   color:black;
   background: rgba(0, 0, 0, 0);
@@ -627,17 +630,16 @@ ul.row.tabNav {
 }
 
 .featuredBeerContainer {
-  padding: 2em 0em 2em 4em;
+  padding: 2em 4em 2em 4em;
 }
 
 .featuredBreweryContainer {
-  padding: 2em 0em 2em 4em;
+  padding: 2em 4em 2em 4em;
   margin: 3em 0em 3em 0em;
 }
 
 .featuredBeerTbl {
-  width: 570px;
-  margin-left:1em;
+  width: 50%;
 }
 
 button a, button a:hover {
@@ -656,14 +658,103 @@ button a, button a:hover {
 #travelIcon {
   height: 16px;
   width: 16px;
-  transition-duration: .8s;
+  transition-duration: .5s;
 }
 #travelIcon:hover {
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
 }
 .VisitedButton {
   display: flex;
   justify-content: space-between;
   width: 20%;
+}
+.VisitedButton > input {
+  cursor: pointer;
+}
+
+div.mainContainer > div.row.mainRow > div.col-lg-6 {
+  overflow:hidden;
+}
+
+.beerSearchInstruct {
+  color:white;
+  text-align:left;
+}
+
+.brewSearchResultsTbl {
+  text-align: left;
+}
+
+@media screen and (max-width: 1200px) {
+
+  .beerSearchInstruct {
+    color:white;
+    text-align:center;
+  }
+
+  .featuredBeerTbl {
+    width: 100%;
+    margin-top: 2em;
+  }
+
+  .featuredMap {
+    margin-top: 2em;
+  }
+
+  .teamImages ul {
+    text-align: center;
+    float: none;
+    margin-top: 1.5em;
+  }
+
+  .teamImages ul li {
+    width: 75%;
+  }
+
+  .footerContainer {
+    text-align: center;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  .introContainer {
+    padding:2.2em 0em 2.2em 0em;
+    background-image:url('../img/beerCloseUp.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    color:black;
+    text-align:center;
+  }
+
+  .mainContainer {
+    border-bottom:orange 3px solid;
+    padding:0em;
+  }
+
+  div.mainContainer > div.row.mainRow > div.col-lg-6 {
+    padding: 0em 4em 0em 4em;
+  }
+
+  .featuredBreweryContainer h2, .featuredBeerContainer h2 {
+    margin-top: 1.2em !important;
+  }
+
+}
+
+@media screen and (min-width: 1200px) {
+
+  .navContainer ul {
+    float:right;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+
+  .beerIntroContainer, .featuredIntroContainer {
+    padding: 0em 2em 0em 2em;
+  }
+
 }
