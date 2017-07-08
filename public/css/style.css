@@ -455,6 +455,7 @@ ul.row.tabNav {
   border-left:0px;
   border-right:0px;
   border-bottom:1px solid black;
+  curosr: pointer;
   text-align: center;
   color:black;
   background: rgba(0, 0, 0, 0);
@@ -667,6 +668,9 @@ button a, button a:hover {
   display: flex;
   justify-content: space-between;
   width: 20%;
+}
+.VisitedButton > input {
+  cursor: pointer;
 }
 
 div.mainContainer > div.row.mainRow > div.col-lg-6 {
