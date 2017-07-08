@@ -15,7 +15,6 @@ class FeaturedMap extends React.Component {
       <Gmaps className={"featuredMap"}
         width={'100%'}
         height={'600px'}
-        position={'relative'}
         lat={this.props.mapLocation.latitude}
         lng={this.props.mapLocation.longitude}
         zoom={8}

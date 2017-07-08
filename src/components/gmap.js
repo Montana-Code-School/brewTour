@@ -62,7 +62,6 @@ class Gmap extends React.Component {
       <Gmaps className={"brewerySearchMap"}
         width={'100%'}
         height={'600px'}
-        position={'relative'}
         lat={(this.getAverage(this.props.lat) === 0) ? 38.8880 : this.getAverage(this.props.lat)}
         lng={(this.getAverage(this.props.lng) === 0) ? -121.0162 : this.getAverage(this.props.lng)}
         zoom={(this.props.isState) ? 5 : 14}

@@ -58,9 +58,17 @@ handleCitySubmit(event) {
       this.setState({
         categories:categories,
         latArr: latArr,
-        lngArr: lngArr
+        lngArr: lngArr,
       });
 
+    })
+    .catch(error => {
+      alert("Sorry That City Does Not Exist In Our Database");
+        this.setState({
+          categories:[],
+          latArr: [],
+          lngArr: []
+        });
     });
 
     event.preventDefault();
@@ -84,6 +92,15 @@ handleRegionSubmit(event) {
         isState: true
       });
 
+    })
+    .catch(error => {
+      alert("Sorry That State Is Not In Our Database");
+      this.setState({
+        categories:[],
+        latArr: [],
+        lngArr: [],
+        isState: false
+      });
     });
 
     event.preventDefault();
