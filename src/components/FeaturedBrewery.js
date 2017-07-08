@@ -54,13 +54,13 @@ class FeaturedBrewery extends React.Component {
         <FeaturedIntro />
         <div className="featuredPageContainer">
           <div className="featuredBreweryContainer row">
-            <img alt={"The logo for " + this.state.featuredBeerBrewery} className="col-lg-3" src={this.state.locationImages.squareMedium} />
-            <div className="col-lg-3">
+            <img alt={"The logo for " + this.state.featuredBeerBrewery} className="col-lg-3 col-md-6" src={this.state.locationImages.squareMedium} />
+            <div className="col-lg-3 col-md-6">
               <h2>{this.state.featuredLocation.name}</h2>
               <p>{this.state.featuredLocation.description}</p>
               <button className="btn btn-primary"><a href={this.state.featuredLocation.website} rel="noopener noreferrer" target="_blank">VIEW WEBSITE</a><span className='btnIcon'>></span></button>
             </div>
-            <div className="col-lg-6">
+            <div className="col-lg-6 col-md-12 col-sm-12 text-center">
               <FeaturedMap
                 featuredLocation={this.state.featuredLocation}
                 locationImages={this.state.locationImages}
@@ -71,13 +71,13 @@ class FeaturedBrewery extends React.Component {
           <hr />
 
           <div className="featuredBeerContainer row">
-            <img alt="The beer Label" className="col-lg-3" src={this.state.featuredBeerLabel.medium} />
-            <div className="col-lg-3">
+            <img alt="The beer Label" className="col-lg-3 col-md-6" src={this.state.featuredBeerLabel.medium} />
+            <div className="col-lg-3 col-md-6">
               <h2>{this.state.featuredBeer.name}</h2>
               <p>{this.state.featuredBeer.description}</p>
               <button className="btn-primary"><a href={this.state.featuredBeerBrewery.website} rel="noopener noreferrer" target="_blank">VIEW BREWERY WEBSITE</a><span className='btnIcon'>></span></button>
             </div>
-            <table className='table table-striped featuredBeerTbl col-lg-6'>
+            <table className='table table-striped featuredBeerTbl col-lg-6 col-md-12 col-sm-12'>
               <tbody>
                 <tr>
                   <th colSpan="2">{this.state.featuredBeer.name}</th>

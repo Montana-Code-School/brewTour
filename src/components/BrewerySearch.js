@@ -96,10 +96,10 @@ render() {
         <Intro />
         <div className='mainContainer'>
           <div className='row mainRow'>
-            <div className='col-lg-6'>
+            <div className='col-lg-6 col-md-12 col-sm-12 text-center'>
               <Gmap isState={this.state.isState} categories={this.state.categories} lat={this.state.latArr} lng={this.state.lngArr} tourArr={this.state.tourArr} />
             </div>
-            <div className='col-lg-5 col-lg-offset-1 breweryListUI'>
+            <div className='col-lg-5 col-lg-offset-1 col-md-12 col-sm-12 text-center breweryListUI'>
             <div className="TwoSearchBars">
               <form onSubmit={this.handleCitySubmit.bind(this)} className='row'>
                 <input className="stateInput col-lg-10" type="text" placeholder="Search By City..." value={this.state.locality} onChange={this.handleCityChange.bind(this)}/>

@@ -7,10 +7,10 @@ render() {
   return (
     <div className = 'navContainer'>
       <div className = 'row'>
-      <div className='col-lg-3 col-md-6'>
+      <div className='col-lg-3 col-md-12 col-sm-12 text-center'>
         <a href="/brewerysearch"><img alt="Brew Tour Logo" src='img/logo.png' /></a>
         </div>
-        <div className='col-lg-9 col-md-6'>
+        <div className='col-lg-9 col-md-12 col-sm-12 text-center'>
           <ul className='navMenu'>
             <Link to="/BrewerySearch">
               <li>SEARCH BREWERIES</li>

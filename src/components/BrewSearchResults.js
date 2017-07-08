@@ -37,7 +37,7 @@ render() {
   return (
 
 <div className='breweryListContainer'>
-  <table className='table table-striped'>
+  <table className='table table-striped brewSearchResultsTbl'>
     <thead>
       <tr>
       <th>BREWERY NAME</th>

@@ -96,14 +96,15 @@ render() {
         <BeerIntro />
         <div className='mainContainer'>
           <div className='row mainRow'>
-            <div className='col-lg-6'>
+            <div className='col-lg-6 col-md-12 col-sm-12 text-center'>
+              <h3 className='beerSearchInstruct'>Search for beers by name, then read, and save!</h3>
               <form onSubmit={this.handleSubmit} className='row' autoComplete="on">
-                <input className="stateInput col-lg-10" type="text" placeholder="Search By Beer..." value={this.state.beername} onChange={this.handleChange.bind(this)}/>
+                <input className="stateInput col-lg-10" type="text" placeholder="Search By Beer Name..." value={this.state.beername} onChange={this.handleChange.bind(this)}/>
                 <input className="stateInputBtn fa fa-search col-lg-2" type="submit" value="&#xf002;" onChange={this.handleSubmit.bind(this)}/>
               </form>
             </div>
-            <div className='col-lg-6'>
-            <table className='table table-striped featuredBeerTbl'>
+            <div className='col-lg-6 col-md-12 col-sm-12'>
+            <table className='table table-striped beerSearchTbl'>
               <tbody>
               <tr>
                 <th colSpan="2">{this.state.beerReturn.name}</th>
