@@ -455,7 +455,7 @@ ul.row.tabNav {
   border-left:0px;
   border-right:0px;
   border-bottom:1px solid black;
-  curosr: pointer;
+  cursor: pointer;
   text-align: center;
   color:black;
   background: rgba(0, 0, 0, 0);
@@ -658,11 +658,11 @@ button a, button a:hover {
 #travelIcon {
   height: 16px;
   width: 16px;
-  transition-duration: .8s;
+  transition-duration: .5s;
 }
 #travelIcon:hover {
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
 }
 .VisitedButton {
   display: flex;
