@@ -863,12 +863,3 @@ div.mainContainer > div.row.mainRow > div.col-lg-6 {
   }
 
 }
-
-
-/* <<<<<<<<<<<<<<<<<<<<<<<<<<< 767 px and smaller styles >>>>>>>>>>>>>>>>>>>>>>>>> */
-@media screen and (max-width: 767px) {
-
-  .beerIntroContainer, .featuredIntroContainer {
-  }
-
-}
