@@ -81,7 +81,7 @@ render() {
             <Modal.Title className='testHeader' id='ModalHeader'>BEER SAVED!</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <img alt="The beer Label" src={(this.state.beerLabel) ? this.state.beerLabelImg.large : ""} />
+            <img alt="The beer Label" src={(this.state.beerLabelImg) ? this.state.beerLabelImg.large : ""} />
             <p>Add More Beers Or View Your Profile By Navigating To Profile</p>
           </Modal.Body>
           <Modal.Footer className='text-center'>

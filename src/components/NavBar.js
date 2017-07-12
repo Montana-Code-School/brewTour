@@ -49,7 +49,7 @@ render() {
               <li>FEATURED</li>
             </Link>
             <li>|</li>
-            <Link to="/profile">
+            <Link to="/Profile">
               <li>MY PROFILE</li>
             </Link>
           </ul>
@@ -69,7 +69,7 @@ render() {
             <Link to="/FeaturedBrewery">
               <li>FEATURED</li>
             </Link>
-            <Link to="/profile">
+            <Link to="/Profile">
               <li>MY PROFILE</li>
             </Link>
           </ul>
