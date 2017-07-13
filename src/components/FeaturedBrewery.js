@@ -60,13 +60,41 @@ class FeaturedBrewery extends React.Component {
               <p>{this.state.featuredLocation.description}</p>
               <button className="btn btn-primary"><a href={this.state.featuredLocation.website} rel="noopener noreferrer" target="_blank">VIEW WEBSITE</a><span className='btnIcon'>></span></button>
             </div>
-            <div className="col-lg-6 col-md-12 col-sm-12 text-center">
-              <FeaturedMap
-                featuredLocation={this.state.featuredLocation}
-                locationImages={this.state.locationImages}
-                mapLocation={this.state.mapLocation}
-                />
-            </div>
+            <table className='table table-striped featuredBeerTbl col-lg-6 col-md-12 col-sm-12'>
+              <tbody>
+                <tr>
+                  <th colSpan="2">{this.state.featuredLocation.name}</th>
+                </tr>
+                <tr>
+                  <td>YEAR ESTABLISHED</td>
+                  <td>{this.state.featuredLocation.established}</td>
+                </tr>
+                <tr>
+                  <td>OPEN TO PUBLIC?</td>
+                  <td>{(this.state.mapLocation.openToPublic === "N") ? "No" : "Yes"}</td>
+                </tr>
+                <tr>
+                  <td>LOCATION TYPE</td>
+                  <td>{this.state.mapLocation.locationTypeDisplay}</td>
+                </tr>
+                <tr>
+                  <td>ALL ORGANIC?</td>
+                  <td>{(this.state.featuredLocation.isOrganic === "N") ? "No" : "Yes"}</td>
+                </tr>
+                <tr>
+                  <td>LOCATION</td>
+                  <td>{this.state.mapLocation.streetAddress} | {this.state.mapLocation.locality}, {this.state.mapLocation.region} | {this.state.mapLocation.postalCode}</td>
+                </tr>
+                <tr>
+                  <td>WEBSITE</td>
+                  <td><a href={this.state.mapLocation.website} rel="noopener noreferrer" target="_blank">{this.state.mapLocation.website}</a></td>
+                </tr>
+                <tr>
+                  <td>BRAND CLASSIFICATION</td>
+                  <td>{this.state.featuredLocation.brandClassification}</td>
+                </tr>
+                </tbody>
+              </table>
           </div>
           <hr />
 
